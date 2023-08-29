@@ -1,5 +1,3 @@
-package inClass;
-
 public class Ascii {
     public static void main(String[] args) {
         System.out.println("                          .,aad88888888888baa,. ");

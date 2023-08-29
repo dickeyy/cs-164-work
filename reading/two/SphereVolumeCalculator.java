@@ -1,5 +1,4 @@
-package inClass;
-
+package reading.two;
 public class SphereVolumeCalculator {
     public static void main(String[] args) {
         double radius = 5.0;
