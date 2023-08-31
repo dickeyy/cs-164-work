@@ -1,4 +1,3 @@
-package inClass;
 import java.util.Scanner;
 
 public class SeatCalculator {
