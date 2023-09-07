@@ -42,7 +42,7 @@ public class Magic8Ball {
      * @return the appropriate string for the conditions
      */
     public String positiveAnswer(int magicNum){
-        if (magicNum < 12){
+        if (magicNum < 12) {
             return "You may rely on it.";
         } else if (magicNum == 12) {
             return "As I see it, yes.";
