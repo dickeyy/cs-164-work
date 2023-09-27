@@ -1,0 +1,808 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 1 Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="21d8c846-f490-4bfe-9fd9-0649b332270a" class="page sans"><header><h1 class="page-title">Unit 1 Notes</h1><p class="page-description"></p></header><div class="page-body"><hr id="0b33f9a5-ec22-4faa-81a9-c8560e89b8a9"/><h2 id="3d0b98fc-dbd6-48ed-8596-e2842c182b03" class="">08/21/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/01_01WelcometoCS1_oncampus_Fall.pdf">Welcome and Intro</a></h2><h3 id="fc5db03e-2fd8-4b8a-8650-fcea96d2e153" class="">Teaching approach / concepts</h3><ul id="717f6633-c323-4e50-bd7b-b6db59fff598" class="bulleted-list"><li style="list-style-type:disc">Based on Psychology of learning (4 week cycles)<ul id="114cdc61-92ae-49d3-9eaa-a6a31d4f9a01" class="bulleted-list"><li style="list-style-type:circle">spacing</li></ul><ul id="74522782-11e7-48bd-84d5-a0c7cda926ec" class="bulleted-list"><li style="list-style-type:circle">interleaving</li></ul><ul id="31719f3e-7aee-4f6c-8077-e56e5f4eecaf" class="bulleted-list"><li style="list-style-type:circle">practiced recall</li></ul><ul id="87a9c4ca-b598-493c-8af5-41425a9d9602" class="bulleted-list"><li style="list-style-type:circle">elaboration</li></ul><ul id="0ba14e5b-2790-44cb-a703-d059abea7ac4" class="bulleted-list"><li style="list-style-type:circle">reflection</li></ul></li></ul><ul id="de504c12-7e9d-40ea-8896-a7ee3b2b0f18" class="bulleted-list"><li style="list-style-type:disc">Grading<ul id="50ccf237-8a31-46d7-a432-7acfec00d28f" class="bulleted-list"><li style="list-style-type:circle">Formative - Can be redone<ul id="5fe791be-d575-4c1f-ae57-5ecfd719c5d1" class="bulleted-list"><li style="list-style-type:square">most things can be redone up until the end of the unit</li></ul></li></ul><ul id="bf807229-bb35-4d1f-8050-0925e3262093" class="bulleted-list"><li style="list-style-type:circle">Summative - Demonstrate what you know<ul id="75c6dee1-c311-446c-8727-b1732a1ce6a9" class="bulleted-list"><li style="list-style-type:square">coding exam </li></ul><ul id="c219cab1-9996-41f5-8922-b6d2fa1655f2" class="bulleted-list"><li style="list-style-type:square">canvas exam<ul id="0a1779f3-6f89-401c-9df8-3a5d5273d3bb" class="bulleted-list"><li style="list-style-type:disc">summative but kinda formative</li></ul><ul id="65ee7f6f-f152-418c-92d6-b13780bfd696" class="bulleted-list"><li style="list-style-type:disc">need 100 readings and 100 quizzes to redo</li></ul></li></ul></li></ul></li></ul><ul id="f4292631-4d17-4791-b5d9-80b3cba237ab" class="bulleted-list"><li style="list-style-type:disc">What you are learning<ul id="e9df303a-a851-40b9-b68c-964b1436bf34" class="bulleted-list"><li style="list-style-type:circle">A new language</li></ul><ul id="a823abb5-69ed-4053-bb51-bb7bdaa2753f" class="bulleted-list"><li style="list-style-type:circle">A different way of thinking (divide-conquer-glue)</li></ul><ul id="4fd9949d-19cf-420d-b095-4ce1e1042e34" class="bulleted-list"><li style="list-style-type:circle">ok to struggle</li></ul></li></ul><h3 id="5455ba9f-658a-4419-aaf6-6a7cc52c2271" class="">Course Structure - Follow Canvas</h3><ul id="806aed24-0c87-432c-b893-1a5fc3ff590a" class="bulleted-list"><li style="list-style-type:disc">Readings<ul id="7a9ab5c6-3d23-405a-88ee-c3b3e8293612" class="bulleted-list"><li style="list-style-type:circle">Due before lectures - sunday, tuesday, thursday nights</li></ul></li></ul><ul id="cc5feb05-e660-48d1-afe9-abf5146f1aea" class="bulleted-list"><li style="list-style-type:disc">Lectures, attendance, worksheets<ul id="6defd946-6234-435b-823e-edbb79f5e80f" class="bulleted-list"><li style="list-style-type:circle">Active learning, a lot of group discussion and coding - BE HERE - or you will miss out</li></ul></li></ul><ul id="8e83edb2-6069-4ae1-b7f2-ab7d1b1e3fd6" class="bulleted-list"><li style="list-style-type:disc">Labs<ul id="0d9d4b36-ecd2-4d40-9c28-ad79e08e1d1e" class="bulleted-list"><li style="list-style-type:circle">Meant to be done after lecture due on lab day</li></ul></li></ul><ul id="8f9fccdc-1015-4088-aebc-7322b1096a30" class="bulleted-list"><li style="list-style-type:disc">Knowledge Checks / Retrieval Practice activities<ul id="838a28a1-e827-4f05-a880-d4bb81c2a570" class="bulleted-list"><li style="list-style-type:circle">Your best study tools</li></ul></li></ul><ul id="0bef694e-4538-485d-8a07-b7775bd44129" class="bulleted-list"><li style="list-style-type:disc">Exams<ul id="e10039cc-8606-4f16-87d7-becf9e16c833" class="bulleted-list"><li style="list-style-type:circle">Canvas Exams<ul id="67ab53d7-9ac4-4f57-b3b5-099c2479d7b5" class="bulleted-list"><li style="list-style-type:square">reading content</li></ul></li></ul><ul id="a03e320d-4170-4d86-887d-9b1bb6742d76" class="bulleted-list"><li style="list-style-type:circle">Coding exams<ul id="4e16af6e-2cf1-4546-a597-76a96b40a7e8" class="bulleted-list"><li style="list-style-type:square">writing content</li></ul></li></ul></li></ul><ul id="021871be-1d51-45ba-8f93-769bd48a4193" class="bulleted-list"><li style="list-style-type:disc">Practical <ul id="83f06469-4450-413c-9b08-645f4e6a4e0a" class="bulleted-list"><li style="list-style-type:circle">these are large and hard programming assignments (usually 2 weeks), that bring it all together</li></ul></li></ul><p id="3178a2d7-446e-4cb1-a5f3-479df684f9e7" class="">
+</p><hr id="2aeb5afd-b107-4bc1-a6be-3cf9e74e9c11"/><h2 id="b225a894-8c45-45a5-85c3-99b801c2c727" class="">8/23/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/01_02_Intro_To_programming.pdf">Intro to Programming</a></h2><h3 id="993f3ecb-9821-448c-b4c2-2ccfc395aa76" class="">Computers hold STATE</h3><ul id="53541b9f-e91b-470a-8005-348360820b74" class="bulleted-list"><li style="list-style-type:disc">Think of water states<ul id="c6158eab-2340-4a77-ac9a-68ba26545c41" class="bulleted-list"><li style="list-style-type:circle">liquid, ice, gas</li></ul></li></ul><ul id="aa6088ac-88ab-4a4e-a158-953d02a6efd3" class="bulleted-list"><li style="list-style-type:disc">Memory has 2 states (binary)<ul id="b53a1e09-6032-4360-b7a4-dcd0009d34d4" class="bulleted-list"><li style="list-style-type:circle">On and off / yes and no / true false / 0 1</li></ul></li></ul><ul id="4845e206-209c-44ca-8396-086c53468523" class="bulleted-list"><li style="list-style-type:disc">This is stored in a BIT</li></ul><ul id="bfbbb43d-c7b8-499a-87dc-e806b629f292" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mtext> </mtext><mtext>bits</mtext><mo>=</mo><mn>1</mn><mtext> </mtext><mtext>byte</mtext></mrow><annotation encoding="application/x-tex">8\thinspace\text{bits} = 1\thinspace\text{byte}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">bits</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">byte</span></span></span></span></span></span><span>﻿</span></span>, basic unit of information</li></ul><ul id="4e77ea0c-36df-4b78-9d5a-9a7ac7d369ff" class="bulleted-list"><li style="list-style-type:disc">All the representational power of computers<ul id="c90d5415-9bea-4dd0-a998-566ffe9ca590" class="bulleted-list"><li style="list-style-type:circle">a bunch of bits</li></ul><ul id="75753793-b768-4641-b2bc-fc0688ff8a06" class="bulleted-list"><li style="list-style-type:circle">representing various states</li></ul></li></ul><ul id="6221ee2a-0e1f-42b1-a201-c259207cfe0a" class="bulleted-list"><li style="list-style-type:disc">Difficult to write it all out <ul id="981ec14d-8d3d-4e1c-b89a-dbc26a4c3914" class="bulleted-list"><li style="list-style-type:circle"><code>0101010110001101100111000</code>  (gross)</li></ul><ul id="4190b912-e752-4513-8efe-41922df65e72" class="bulleted-list"><li style="list-style-type:circle">therefore we use programming languages</li></ul></li></ul><h3 id="3b7b1b7e-947e-49b5-8efa-e68101fcbea5" class="">Coding</h3><ul id="8dbeabc1-e858-46a2-8ab8-658189031657" class="bulleted-list"><li style="list-style-type:disc">Coding used to be literally moving physical wires<ul id="8dadb00c-32fe-4c4f-a7b6-19a8f28a7644" class="bulleted-list"><li style="list-style-type:circle">and was unique to every machine</li></ul></li></ul><ul id="f917bb3c-85ca-4e73-8891-94bc0fbd038d" class="bulleted-list"><li style="list-style-type:disc">Then code became compiled<ul id="a326c146-e1af-424f-9bcd-9490df0e5dfc" class="bulleted-list"><li style="list-style-type:circle">from english to 1s and 0s</li></ul></li></ul><ul id="8533ee46-987d-4058-a9a7-635f824355df" class="bulleted-list"><li style="list-style-type:disc">Who do we have to thank?<ul id="defcfda2-bb78-4ab7-8bcc-12d51ba80dce" class="bulleted-list"><li style="list-style-type:circle">Admiral Grace Murray Hopper<ul id="0c5dc22a-8179-414f-9f1a-761df2c97b60" class="bulleted-list"><li style="list-style-type:square">designed the COBOL lang</li></ul></li></ul></li></ul><ul id="7253c8d0-2712-41fa-9a6d-fbfb90c32ad5" class="bulleted-list"><li style="list-style-type:disc">Her dream was to write once, run everywhere<ul id="59fe29e2-e17c-4765-b10e-76d16f5cc9b1" class="bulleted-list"><li style="list-style-type:circle">but it took may years for it to come true</li></ul></li></ul><h3 id="12b5f611-7431-4df2-ac60-ec0b30d679db" class="">Java Bytecode</h3><ul id="374dc8e1-be2b-44e1-a397-9e0eac20ff3d" class="bulleted-list"><li style="list-style-type:disc">Write once - run most anywhere<ul id="04242fb2-20f0-4958-b407-053ff810b294" class="bulleted-list"><li style="list-style-type:circle">James Gosling - lead designer</li></ul></li></ul><ul id="4b041b96-22ee-40f4-88d2-7a1d9dc889f1" class="bulleted-list"><li style="list-style-type:disc">Programs are a set of instructions<ul id="f92716ab-a956-440c-8a51-8c78ea562057" class="bulleted-list"><li style="list-style-type:circle">written in english - very specific instructions</li></ul></li></ul><ul id="fbdd2332-8e3b-4e2d-b1fd-aa2d65df989c" class="bulleted-list"><li style="list-style-type:disc">Android is the most used os in the word <ul id="a2ce4ac1-dc36-4841-99ee-40e520c69d1c" class="bulleted-list"><li style="list-style-type:circle">written in java</li></ul></li></ul><p id="8437886b-519a-4342-8294-c13b3423e1eb" class="">
+</p><hr id="5d6bcdbd-3641-440a-b765-73e30433367c"/><h2 id="b9a28e2f-4cc4-4603-9b5e-c3571a0be6d5" class="">8/28/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/02_01_Variables.pdf">Identifiers, Variables, Operators</a></h2><h3 id="ca39f50b-8a0a-4ecd-9b8a-4ee7b58df003" class="">Types</h3><ul id="c1f3838b-bbaa-48fe-b14f-9517bbbf58ea" class="bulleted-list"><li style="list-style-type:disc">Type tells the computer how much room to save</li></ul><ul id="347cf854-3aa3-42ac-8147-5f9a68fda4df" class="bulleted-list"><li style="list-style-type:disc">int<ul id="1cc66795-35e1-487f-8e79-5f5adea37728" class="bulleted-list"><li style="list-style-type:circle">whole numbers only</li></ul><ul id="aadd41c3-b6a9-48a6-91c7-2d7225b030fe" class="bulleted-list"><li style="list-style-type:circle">1, 2, 3, 101023</li></ul></li></ul><ul id="22d8b79f-f894-49d6-946c-2745178bc752" class="bulleted-list"><li style="list-style-type:disc">double<ul id="a687cb79-cc87-41b8-9e87-b0c6639e262e" class="bulleted-list"><li style="list-style-type:circle">floating point numbers</li></ul><ul id="5cbd0779-e5ec-42ab-b615-6b4d30370e61" class="bulleted-list"><li style="list-style-type:circle">1.0, 2.34, 123.123213</li></ul></li></ul><ul id="45a39034-8f21-4a1c-826d-9c50e47a3c68" class="bulleted-list"><li style="list-style-type:disc">char <ul id="0293c87b-e561-44dd-8173-4beda2f3118a" class="bulleted-list"><li style="list-style-type:circle">Every character on a keyboard stored as an int</li></ul></li></ul><ul id="4e05d4c6-f206-4cc3-97a0-c16c82d41d18" class="bulleted-list"><li style="list-style-type:disc">boolean<ul id="164c76d5-ed48-4115-b266-33b84b4c4d76" class="bulleted-list"><li style="list-style-type:circle">true or false</li></ul></li></ul><ul id="7f32be00-f927-46df-b7c5-8e492a213b2b" class="bulleted-list"><li style="list-style-type:disc">String<ul id="890f5d55-a4c2-47db-8d50-e331762d7444" class="bulleted-list"><li style="list-style-type:circle">collection of ordered characters</li></ul><ul id="f3cb203c-520d-4251-a10a-f2a0e09581e8" class="bulleted-list"><li style="list-style-type:circle">it is more unique (object)</li></ul></li></ul><h3 id="559047b5-b6eb-49ba-86b1-c23591ca831b" class="">Variables</h3><ul id="b37516c8-0a25-4d67-a427-fdf20a801dce" class="bulleted-list"><li style="list-style-type:disc">Identifiers are WORDs<ul id="d2d1b9ff-496c-4bed-89c6-fb55c87cb5de" class="bulleted-list"><li style="list-style-type:circle">you use the to <em>hold</em> information</li></ul><ul id="104289f4-af85-4d9e-91dd-43711a3b6e2c" class="bulleted-list"><li style="list-style-type:circle">cannot be a reserved word</li></ul><ul id="2df316f2-4577-4bf7-a2ae-8719373a963a" class="bulleted-list"><li style="list-style-type:circle">cannot start with numbers or special characters outside of underscore</li></ul><ul id="02bfb38c-0e94-4171-95ed-f0231cd74d94" class="bulleted-list"><li style="list-style-type:circle">use real words <code>int x</code> doesn’t mean much, but <code>int puppyCounter</code> has meaning and readability</li></ul></li></ul><ul id="959f7fba-5f9e-47c3-bf62-279ea2cefcb1" class="bulleted-list"><li style="list-style-type:disc">Declaring variables<ul id="264e4e30-65fe-4465-8d77-eb8e44ddc4e5" class="bulleted-list"><li style="list-style-type:circle"><code>&lt;TYPE&gt; &lt;IDENTIFIER&gt;;</code></li></ul><ul id="11b2aba9-45d5-411f-99db-340398dc11d7" class="bulleted-list"><li style="list-style-type:circle">Can be declared in the same line</li></ul><ul id="4f412477-c26f-45f4-95da-c1436d2e13e6" class="bulleted-list"><li style="list-style-type:circle">declaring reserves or allocates memory </li></ul></li></ul><ul id="65c2f8ab-9986-4dd6-b557-4be7b7758998" class="bulleted-list"><li style="list-style-type:disc">examples<pre id="da2e5585-19bd-482c-9d0d-38e899e1ad89" class="code"><code>int myInt;
+double myDouble;
+int x, y, z;
+double db1, db2;
+String firstProgrammer;</code></pre></li></ul><h3 id="4bb98e71-675e-4739-a0b5-941666a5b136" class="">Assigning / storing values</h3><ul id="75b4af13-6e2e-4c00-8260-7bd277d19f6f" class="bulleted-list"><li style="list-style-type:disc">single equals sign assigns values</li></ul><ul id="1355eb41-abc5-4d44-bcdf-f08f56d73abe" class="bulleted-list"><li style="list-style-type:disc">the value must match type<ul id="8fb31e37-2089-4a91-bddc-3cc46375c061" class="bulleted-list"><li style="list-style-type:circle">Strongly type’d language</li></ul></li></ul><ul id="0e0555de-ef11-4c08-bab3-3df789e6f795" class="bulleted-list"><li style="list-style-type:disc">You can change the value as much as you want<ul id="8c5cb9a1-daaf-4c94-9172-993dc31b9dcb" class="bulleted-list"><li style="list-style-type:circle">but it must still be the same type</li></ul></li></ul><ul id="cb466925-d027-4f8c-9e48-09add8b3fe76" class="bulleted-list"><li style="list-style-type:disc">Assigning the first time is called initialization<ul id="ce63d28c-34e3-4f9d-bcc5-6cee26c3f4f3" class="bulleted-list"><li style="list-style-type:circle">often done in the same line as declaring</li></ul></li></ul><ul id="65ebab1f-20f9-496c-ab3e-89d932b28fcd" class="bulleted-list"><li style="list-style-type:disc">objects are <code>null</code> if not assigned</li></ul><h3 id="8990f408-ac01-45e0-9f75-77d214ce232e" class="">Operators</h3><ul id="903c5d92-f7d4-448e-8b75-4bbc9448ed04" class="bulleted-list"><li style="list-style-type:disc">operators are MATH<ul id="97e330a1-8730-4429-9f86-1bedc96c2386" class="bulleted-list"><li style="list-style-type:circle">= assignment</li></ul><ul id="9abc8f4b-8760-46fe-846b-4eb4b8a9cd13" class="bulleted-list"><li style="list-style-type:circle">+ add</li></ul><ul id="711c7705-ef12-4ece-a468-f2992e1db2b3" class="bulleted-list"><li style="list-style-type:circle">- subtract</li></ul><ul id="90aedc9f-c6e4-4644-8f0f-8a0ef4ea113d" class="bulleted-list"><li style="list-style-type:circle">/ divide</li></ul><ul id="c6fca603-4956-4af8-a51b-d8ab8852efa3" class="bulleted-list"><li style="list-style-type:circle">* multiply</li></ul><ul id="804382a7-a309-4785-94c1-2361b99dbb2a" class="bulleted-list"><li style="list-style-type:circle">% modulo - remainder</li></ul></li></ul><ul id="b0a031e3-352b-4db4-ab87-0bdfea6c770f" class="bulleted-list"><li style="list-style-type:disc">Numeric types<ul id="87aa4d10-7669-404e-bfde-e001deca5768" class="bulleted-list"><li style="list-style-type:circle"><code>int</code> - always whole number</li></ul><ul id="86f8b3b1-93e1-4bf1-aae7-6c58db3919c9" class="bulleted-list"><li style="list-style-type:circle"><code>int myVal = 1 / 2; // evaluates to 0!</code></li></ul><ul id="66b52f6b-97b2-4f63-bad3-d1fae0de34af" class="bulleted-list"><li style="list-style-type:circle"><code>double</code> - has decimals</li></ul><ul id="06696683-29eb-4e91-83ee-5a353afb8c9f" class="bulleted-list"><li style="list-style-type:circle"><code>double doubleVal = 1.0 / 2; // evaluates to 0.5!</code></li></ul></li></ul><h3 id="116df251-4ca1-44a3-858d-2290dbe594ac" class="">Integer Division</h3><ul id="98c26f24-0482-4939-a8d1-ec599106811a" class="bulleted-list"><li style="list-style-type:disc"><code>int val = 5 / 6; // sets val to 0</code></li></ul><ul id="2f457442-e4bd-409c-a478-3183358085f3" class="bulleted-list"><li style="list-style-type:disc"><code>int val2 = 10 / 3; // sets val2 to 3</code></li></ul><ul id="13be2db0-5edf-4b67-9fe0-601b59f596b5" class="bulleted-list"><li style="list-style-type:disc">you lose the decimal point<ul id="2426e9f2-29a0-4376-bb4f-5a74b17a8ffa" class="bulleted-list"><li style="list-style-type:circle">truncates, does not round</li></ul></li></ul><ul id="9214cbfd-dc55-4e41-93f9-140e36c53b87" class="bulleted-list"><li style="list-style-type:disc">this is a very, very common thing<ul id="169f1ae2-7100-45d9-a83b-9125d9bc0a27" class="bulleted-list"><li style="list-style-type:circle">both to our advantage</li></ul><ul id="0d8d7b12-1b55-4330-be59-fa47946c8810" class="bulleted-list"><li style="list-style-type:circle">and often to our error</li></ul></li></ul><h3 id="71b6de4e-818c-4d72-8155-8a139d72c565" class="">Modulo</h3><ul id="2fc8ea4d-ad52-4a77-8939-42d3759aaeaf" class="bulleted-list"><li style="list-style-type:disc"><code>modulo (%)</code> gives you the remainder</li></ul><ul id="d3620cda-55fc-4ef6-bab6-5f9f21af77e4" class="bulleted-list"><li style="list-style-type:disc">4th grade math</li></ul><ul id="ca4a7ab6-5f41-4ead-95c9-356fa748db4b" class="bulleted-list"><li style="list-style-type:disc">this example<pre id="71bcf917-8977-4ea3-a2c6-516ba45ff4c9" class="code"><code>int x = 250 % 6; // would be 4
+
+// so combining them
+
+int whole = 250 / 6; // 41
+int remainder = 250 % 6; // 4</code></pre></li></ul><h3 id="012abd5b-91fb-43c0-9c05-d8ef0b2b8903" class="">What are some cases to use it?</h3><ul id="4b9c766b-35e8-4a32-a9f0-1d623ecebab8" class="bulleted-list"><li style="list-style-type:disc">Forming groups<ul id="f19c170b-1ec7-467c-8662-18121af2e708" class="bulleted-list"><li style="list-style-type:circle">the remainder is always between 0 and 1</li></ul><ul id="ff57ec2e-031b-48b8-856f-c727b4ac2dae" class="bulleted-list"><li style="list-style-type:circle">Value % 6 has a range of 05</li></ul><ul id="2d544dec-a0b5-47f3-861c-0b6a72299700" class="bulleted-list"><li style="list-style-type:circle">Value % 4 has a range of 03</li></ul></li></ul><ul id="7230b944-24e7-43ee-883b-49a8df6f2b82" class="bulleted-list"><li style="list-style-type:disc">think about rolling dice<ul id="b072c8cf-8dc0-4371-8778-1ca6eff8de1d" class="bulleted-list"><li style="list-style-type:circle"><code>Math.random() % 6;</code> random number between 0 and 5</li></ul></li></ul><ul id="7dac9609-8c69-4357-9017-a445fbd71ac0" class="bulleted-list"><li style="list-style-type:disc">Determining even and odd - <code>Math.random() % 2</code> if 0, even, if 1, odd.</li></ul><h3 id="02714b8f-b2fe-4581-a8f0-c7a43c76660a" class="">Scanner</h3><ul id="b8e371ab-6304-4725-8e9d-3eef206a9e21" class="bulleted-list"><li style="list-style-type:disc">Read something from the console / terminal</li></ul><ul id="f61de509-e8fd-4883-8e8a-0570a3963fea" class="bulleted-list"><li style="list-style-type:disc">First needs to create an object of the class Scanner<ul id="0f40ad0c-d29a-4f76-9028-fc068431ae16" class="bulleted-list"><li style="list-style-type:circle"><code>Scanner in = new Scanner(System.in);</code></li></ul></li></ul><ul id="8b91fb8a-c598-41f5-86cc-ad92ab7e5646" class="bulleted-list"><li style="list-style-type:disc">Second needs to know the type of variable that wants to read - that will define the method you ill use<ul id="33a1f2dc-f1dd-408e-9f5e-cccb0b466a8f" class="bulleted-list"><li style="list-style-type:circle"><code>int val in.nextInt();</code></li></ul><ul id="4cbc0e15-3d82-416d-ba10-8f0ed90dd4b0" class="bulleted-list"><li style="list-style-type:circle"><code>double valD = in.nextDouble();</code></li></ul><ul id="02ea11e2-a1b9-4b36-9240-98994e2069aa" class="bulleted-list"><li style="list-style-type:circle"><code>String str = in.nextLine();</code></li></ul></li></ul><h3 id="9673af09-8158-4a5b-8428-7a83291d1561" class="">Convenience Operators</h3><ul id="58c83205-9872-43a9-873e-62ff70761408" class="bulleted-list"><li style="list-style-type:disc">We often find ourselves doing things like<ul id="719cac32-3f35-48fe-a28a-ce92ac077d42" class="bulleted-list"><li style="list-style-type:circle"><code>int value = 100;</code></li></ul><ul id="afac33e9-f962-4c34-87b4-c7efe184188e" class="bulleted-list"><li style="list-style-type:circle"><code>value = value + 10;</code></li></ul></li></ul><ul id="16a0f025-f799-412a-bbd5-08f48a47f3e0" class="bulleted-list"><li style="list-style-type:disc">introducing operator plus assignment<ul id="3dabdfc2-0bb6-4a38-8fb9-5b9a66bdf2b1" class="bulleted-list"><li style="list-style-type:circle"><code>value += 10;</code></li></ul><ul id="44ead643-f52b-492e-bd3c-6342471613bb" class="bulleted-list"><li style="list-style-type:circle">+=</li></ul><ul id="4c7603ba-f893-4f95-98e7-2b2ab0c332b5" class="bulleted-list"><li style="list-style-type:circle">-=</li></ul><ul id="277c9344-6eac-43a3-88ba-cfdec76332ef" class="bulleted-list"><li style="list-style-type:circle">/=</li></ul><ul id="c44e98d1-3e52-43ed-bf8e-a1cec27a7334" class="bulleted-list"><li style="list-style-type:circle">*=</li></ul><ul id="f9cb4373-8b80-4640-a7f6-9d9cc51413c0" class="bulleted-list"><li style="list-style-type:circle">%=</li></ul></li></ul><ul id="97cd10c0-bc16-4778-80f5-15933c35c3ab" class="bulleted-list"><li style="list-style-type:disc">We also like to add and subtract by 1<ul id="3f352b7c-45e2-4b88-aa06-010c870d2ec5" class="bulleted-list"><li style="list-style-type:circle"><code>--value and ++value</code></li></ul></li></ul><h3 id="b38ad325-5e6d-46c0-baa4-90fa39188eaa" class="">Examples</h3><pre id="d58293b5-cf07-4e24-bf77-2049f2c73a7e" class="code"><code>int puppyCounter = 100; // So many puppies!
+
+String puppyName = &quot;Spot&quot;;
+String puppyLongName = &quot;Cerberus&quot;;
+
+double amountOfFoodPerDayLbs = 20.56;
+amountOfFoodPerDayLbs = amountOfFoodPerDayLbs + 10.0 // assigns 30.56
+
+boolean isPettable = true;
+
+char singleLetter = &#x27;c&#x27;; // one letter, single quote</code></pre><p id="8fd578ea-5dcb-4ad8-a273-855a4dc06b73" class="">
+</p><hr id="e9c95b15-c929-4706-bf74-bbf117e041c0"/><h2 id="07e7f76f-9b4d-41b7-b426-0ebf5bae4b9e" class="">8/30/23 -<a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/02_02_ObjectsMethods.pdf"> Objects and Methods</a></h2><h3 id="bd75923b-efc8-4251-b76a-6c826b101ccf" class="">Programming == Problem Solving</h3><ul id="f84d020e-992c-491f-8b80-ac602e59eca9" class="bulleted-list"><li style="list-style-type:disc">You look at the problem and constraints <ul id="fd5d890c-21a0-43e9-91dc-8be216374800" class="bulleted-list"><li style="list-style-type:circle">Clarify the problem and constraints</li></ul></li></ul><ul id="695b5e97-aeed-406f-b4a5-f59d9e777ddb" class="bulleted-list"><li style="list-style-type:disc">Break it up into <em>smaller</em> parts (divide)</li></ul><ul id="c5d9c4da-33e4-479b-b160-ee36c9b9756d" class="bulleted-list"><li style="list-style-type:disc">Outline the steps needed<ul id="9bfb5516-085e-402b-a979-9a3ecf74dba1" class="bulleted-list"><li style="list-style-type:circle">Solve each step (Conquer)</li></ul></li></ul><ul id="7061eecc-927a-4ce6-91d1-6f3afd009f1a" class="bulleted-list"><li style="list-style-type:disc">Reassemble the pieces (Glue)</li></ul><ul id="c287ba23-55e1-43c5-93ce-dbacffaccec0" class="bulleted-list"><li style="list-style-type:disc">Completed program</li></ul><h3 id="5a0c5059-dc36-4a63-ae28-47e557c968aa" class="">Methods</h3><ul id="5d5ffd7f-a67c-44d1-9622-1d2ed82a57dc" class="bulleted-list"><li style="list-style-type:disc">Methods are ways to modularize / reduce the code</li></ul><ul id="b574853f-4f73-4557-8e58-0d1383fe52f1" class="bulleted-list"><li style="list-style-type:disc">Methods are designed to implement a specific function in our program<ul id="c1ce1aea-3cc8-4c62-99a4-dff881c3d2ad" class="bulleted-list"><li style="list-style-type:circle">Small / repeatable blocks</li></ul></li></ul><ul id="63afd73d-964c-4232-a866-70aaf883e5d1" class="bulleted-list"><li style="list-style-type:disc">Methods are defined inside a class</li></ul><ul id="c8ea8f9b-5661-4bde-baab-2b69040f23dd" class="bulleted-list"><li style="list-style-type:disc">When we build a method inside a class that has a main method the method needs to have the following format<ul id="4ddf6a5c-d9aa-46f3-a785-3a836105d922" class="bulleted-list"><li style="list-style-type:circle"><code>public static &lt;TypeOfReturn&gt; methodName(&lt;ListOfParameters&gt;) {}</code></li></ul><ul id="8b95b36b-148c-4779-9d1b-bcdab5f2cee8" class="bulleted-list"><li style="list-style-type:circle"><code>public static</code>: access mode is public, can be called without restrictions<ul id="93ff06b3-4e49-4c5b-8461-0c87d57761e8" class="bulleted-list"><li style="list-style-type:square"><code>static</code>method belongs to the class</li></ul></li></ul><ul id="377ba89f-a37f-444a-b824-ea033adc61b4" class="bulleted-list"><li style="list-style-type:circle"><code>&lt;TypeOfReturn&gt;</code> <ul id="3a2a2ecb-a55f-4952-ad3f-db17afe80701" class="bulleted-list"><li style="list-style-type:square"><code>void</code>: no return</li></ul><ul id="1c4209c1-80b6-4171-90bc-79be0530fa5a" class="bulleted-list"><li style="list-style-type:square">Any class or primitive type</li></ul></li></ul><ul id="21c14115-612a-4187-ab84-4510d6d17053" class="bulleted-list"><li style="list-style-type:circle"><code>&lt;ListOfParameters&gt;</code><ul id="f499a98b-f045-40aa-b5e4-eaf371692275" class="bulleted-list"><li style="list-style-type:square">list of parameters separated by commas</li></ul><ul id="7c9ae83e-d482-41ac-b5eb-560ed32b99c6" class="bulleted-list"><li style="list-style-type:square">Each parameter needs to have a type and name</li></ul></li></ul></li></ul><h3 id="b39027ef-570e-4efd-971e-6d070a9aca08" class="">Objects</h3><ul id="95687377-ed53-4426-9ad6-3fed65ff6756" class="bulleted-list"><li style="list-style-type:disc">Objects are building blocks</li></ul><ul id="ece531c6-e537-4545-8b45-d759daa86cbb" class="bulleted-list"><li style="list-style-type:disc">think of legos<ul id="a90a6e3a-4fc0-4ca9-849a-ec6927417c3d" class="bulleted-list"><li style="list-style-type:circle">blocks</li></ul><ul id="3a3cd3a7-9710-4b6a-baf6-c79692053b6f" class="bulleted-list"><li style="list-style-type:circle">assembled in different ways - creates new and interesting things</li></ul></li></ul><ul id="4abb210b-ddc4-40bd-9dff-bdac8a45f71f" class="bulleted-list"><li style="list-style-type:disc">Objects contain information in a logical order</li></ul><ul id="1456f308-6b5b-4f48-9364-c142481e9710" class="bulleted-list"><li style="list-style-type:disc">Most objects use the <code>new</code> keyword<pre id="522464d9-cc3b-436d-89b4-40b9861e8fc7" class="code"><code>MyCoolObject obj = new MyCoolObject();
+obj.myCoolMethod();</code></pre></li></ul><ul id="ceb7b89c-6457-4357-a7d7-d61e5e02d361" class="bulleted-list"><li style="list-style-type:disc">We will keep coming back to this<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8ba2bea4-ce61-483e-81a2-e461fc7262bd"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Methods belong to objects</div></figure><ul id="07643598-68ab-438f-8514-1350719515ab" class="bulleted-list"><li style="list-style-type:circle">Even methods that you write</li></ul></li></ul><h3 id="82a59ad0-d101-4395-a209-ad45cd464efc" class="">Rectangle? Is a Class?</h3><ul id="b43b28cf-ae35-48db-8a9d-4a50428965ce" class="bulleted-list"><li style="list-style-type:disc">In Java (an oop lang) everything must be in a class</li></ul><ul id="c1d3221a-f7b5-445b-b491-854acf687960" class="bulleted-list"><li style="list-style-type:disc">you can create objects out of classes<ul id="8d59468f-f77e-4615-8f92-25f953bd1710" class="bulleted-list"><li style="list-style-type:circle">use the new keyword<pre id="f49c66ec-9f5f-4ad6-acc6-21a59b5f6bc7" class="code"><code>Rectangle myHouse = new Rectangle();
+Scanner scnr = new Scanner(System.in);</code></pre></li></ul></li></ul><ul id="78c20b0a-384c-4947-8230-599f1bf113c6" class="bulleted-list"><li style="list-style-type:disc">the <code>new</code> keyword reserves memory for that instance / object</li></ul><h3 id="91169ed4-40c7-430f-b215-cdbea20c255e" class="">Rectangle Class</h3><pre id="47b328ac-99df-4305-bd63-b1004219af9e" class="code"><code>public class Rectangle {
+	private int width; // instance variables
+	private int length;
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+	
+	public void setWidth(int w) {
+		width = w;
+	}
+	
+	public int calculateArea() {
+		return width * length;
+	}
+}</code></pre><ul id="c20f2fa8-8a25-49a7-9d9d-0e43a91bc4c6" class="bulleted-list"><li style="list-style-type:disc">Instance Variables<ul id="4effdbec-576b-4f74-bce6-2acf10888c4f" class="bulleted-list"><li style="list-style-type:circle">Represent the Data</li></ul></li></ul><ul id="c4a04bf2-8772-484a-ae0c-d4a91b970f92" class="bulleted-list"><li style="list-style-type:disc">private<ul id="41345eb1-38c6-4321-a2f4-d4f74e21de5e" class="bulleted-list"><li style="list-style-type:circle">Means that only the class can access those values directly</li></ul></li></ul><ul id="bdd66b16-b499-45d4-a940-c4b8a6e9a58c" class="bulleted-list"><li style="list-style-type:disc">public<ul id="5e680838-8d11-48d8-967c-d773213926b9" class="bulleted-list"><li style="list-style-type:circle">Others can access public methods</li></ul></li></ul><ul id="7bb16983-1dc8-4746-882b-624d1ecdac0d" class="bulleted-list"><li style="list-style-type:disc"><code>this</code> - keyword<ul id="35e75b6d-549e-4d24-b4a1-5793255fde67" class="bulleted-list"><li style="list-style-type:circle">means “this object / instance</li></ul><ul id="59a08dc9-5caa-4d76-8da5-13b4818fb94d" class="bulleted-list"><li style="list-style-type:circle">helps keep track of which variable </li></ul><ul id="6c8b3783-9edf-42f1-8dba-5418a420d1fc" class="bulleted-list"><li style="list-style-type:circle">common practice - but not required</li></ul></li></ul><h3 id="bc3dab70-b9a8-4ef8-9e5e-7b5a5ee6c77f" class="">Class Constructor</h3><pre id="e3daf414-9ae0-48c5-b871-9c6496ec29a6" class="code"><code>public Rectangle() {
+	width = 0;
+	this.length = 0;
+}
+
+public Rectangle(int w, int l) {
+	width = w;
+	length = l;
+}</code></pre><p id="8c0caae7-887b-4db6-8d61-5e5a8a7d3c25" class="">or</p><pre id="a2869c17-9668-40ed-ab64-b7d1059bed0e" class="code"><code>public Rectange() {
+	setWidth(0);
+	setLength(0);
+}
+
+public Rectangle(int w, int l) {
+	setWidth(w);
+	setLength(l);
+}</code></pre><ul id="90a1a183-e402-4ecd-849d-72b1e6902e4b" class="bulleted-list"><li style="list-style-type:disc">Special method that has the name of the class</li></ul><ul id="297835b3-4176-48c5-b2bf-e2e427726862" class="bulleted-list"><li style="list-style-type:disc">No return not even void</li></ul><ul id="e17943c3-2922-4635-a9e3-0bff2e52bcf0" class="bulleted-list"><li style="list-style-type:disc">Can be overloaded<ul id="21e37fd1-63cb-44ec-ab56-c7a7e5235e8d" class="bulleted-list"><li style="list-style-type:circle">meaning that we have more then one implementation for the method </li></ul><ul id="5e415917-7dd0-468b-8142-a6435f0f7a1a" class="bulleted-list"><li style="list-style-type:circle">same name with different parameters</li></ul></li></ul><ul id="134d77c0-9140-4f8c-9610-e26e125e908a" class="bulleted-list"><li style="list-style-type:disc"><code>Rectangle()</code> - no parameters</li></ul><ul id="909e2b6f-e037-48d5-84bd-5f3e58960274" class="bulleted-list"><li style="list-style-type:disc"><code>Rectangle(int w, int l)</code> - with parameters</li></ul><ul id="7fc2b9bb-a6c4-45d7-bab4-75fe0b595547" class="bulleted-list"><li style="list-style-type:disc">You can call methods inside of the constructor</li></ul><ul id="bb1dfdda-7e12-4eb0-9505-b23153ec0170" class="bulleted-list"><li style="list-style-type:disc">Usually, you call mutators (sets) methods, if the class has them defined</li></ul><h3 id="2e4ccfbc-98f2-4a91-9559-959ebe7b5759" class="">Class Instance Methods</h3><pre id="44007cd9-5ff6-4cf3-b11d-66d754501bac" class="code"><code>public void setLength(int length) {
+	this.length = length;
+}
+
+public void setWidth(int w) {
+	width = w;
+}
+
+public int calcArea() {
+	return width * length;
+}</code></pre><ul id="23531b71-4b65-404f-a23c-68ff57f906dc" class="bulleted-list"><li style="list-style-type:disc">static methods<ul id="3c0a5986-996d-4757-ae71-37ffbbbc3e60" class="bulleted-list"><li style="list-style-type:circle">belongs to the class / self-contained</li></ul></li></ul><ul id="64abdd6e-9eb3-4d33-bb53-497f43aa4689" class="bulleted-list"><li style="list-style-type:disc">Instance methods<ul id="94b0b5b5-cdf6-4caf-a205-f9d2def5daf1" class="bulleted-list"><li style="list-style-type:circle">need to access the instance variables</li></ul><ul id="b075eeee-8e99-4e63-b6c8-a35706eaa91b" class="bulleted-list"><li style="list-style-type:circle">uses the data in the object</li></ul><ul id="39828e34-c831-4843-94a4-213597768319" class="bulleted-list"><li style="list-style-type:circle">unique to that instance</li></ul></li></ul><h3 id="46663c34-fe13-444a-80c6-1147c31ce262" class="">Why methods and objects? <span style="border-bottom:0.05em solid">DRY</span> Code</h3><ul id="715dc5ee-321c-4ffa-b2ad-dca3acf8b0a2" class="bulleted-list"><li style="list-style-type:disc">Code should be <span style="border-bottom:0.05em solid"><strong>DRY</strong></span><ul id="138f23d3-6e9b-4aa2-98f9-b1477056516a" class="bulleted-list"><li style="list-style-type:circle"><span style="border-bottom:0.05em solid"><strong>D</strong></span>on’t <span style="border-bottom:0.05em solid"><strong><span style="border-bottom:0.05em solid"><strong>R</strong></span></strong></span>epeat <span style="border-bottom:0.05em solid"><strong>Y</strong></span>ourself</li></ul></li></ul><ul id="6d7b1543-74e5-45d0-8db8-7d4e709f8b42" class="bulleted-list"><li style="list-style-type:disc">code should be <ul id="8067b8d2-39f0-45ad-a9ce-c3838a5da3e3" class="bulleted-list"><li style="list-style-type:circle">reusable</li></ul><ul id="10d58b10-4428-4f90-acdd-013642086fb4" class="bulleted-list"><li style="list-style-type:circle">small snippets</li></ul></li></ul><ul id="4f46231d-c324-4a79-99f5-a60263a8c1c1" class="bulleted-list"><li style="list-style-type:disc">Reusable code<ul id="fe162f9f-6200-40ae-b1fb-4bbc922d93e3" class="bulleted-list"><li style="list-style-type:circle">only write once</li></ul><ul id="e0eca50d-9bb0-47b0-a34b-685801af1f5d" class="bulleted-list"><li style="list-style-type:circle">use in multiple applications</li></ul></li></ul><ul id="2e83e72b-036e-41e5-8bab-5fc2c0022baf" class="bulleted-list"><li style="list-style-type:disc">Java<ul id="416d2233-d03e-4bf2-8d8f-b024d672ed73" class="bulleted-list"><li style="list-style-type:circle">objects are blocks of information, with reusable code / methods</li></ul><ul id="f0269183-802d-4a8e-b94d-0e38ce0515f8" class="bulleted-list"><li style="list-style-type:circle">methods are blocks of reusable code<ul id="96d56d4a-a702-4aae-8c90-a5337518c82a" class="bulleted-list"><li style="list-style-type:square">ideally, no more than 20 instructions</li></ul></li></ul><ul id="b813aa5b-8ac5-4cbc-8ba2-8af59231db6b" class="bulleted-list"><li style="list-style-type:circle">clue: if you are cutting and pasting code - it should be a method</li></ul></li></ul><p id="f4448291-9dcf-469d-9450-f1176742b6cb" class="">
+</p><hr id="cb53139e-3278-44a2-9220-8c1cbe78261e"/><h2 id="a89f8081-04ac-45a5-b7ff-4468375b0441" class="">9/1/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/02_03_CharactersAndStrings.pdf">Character &amp; Strings</a></h2><h3 id="2167b412-7587-45dd-8a6b-71a78f4720e0" class="">Characters (Char)</h3><ul id="4b29a793-7969-4df4-ae2d-37d1c282f4ff" class="bulleted-list"><li style="list-style-type:disc">Primitive - stores values only</li></ul><ul id="2bef7408-ab08-4a37-81ce-832bc973f90a" class="bulleted-list"><li style="list-style-type:disc">Example declarations<pre id="1eb3ee8c-bcec-4080-ab68-87e1db7be047" class="code"><code>char myChar = &#x27;x&#x27;;
+char newLine = &#x27;\n&#x27;;
+char myChar2 = 57;
+char what = (char)(&#x27;A&#x27; + 2);</code></pre></li></ul><ul id="f99f8585-6b55-4733-9bac-8d284874fa63" class="bulleted-list"><li style="list-style-type:disc">A char is an int behind the scenes - and java uses the <a href="https://en.wikipedia.org/wiki/File:ASCII-Table.svg">ASCII table</a> to figure out the character value</li></ul><h3 id="6184ff9d-0bb0-4ede-9464-0ca95f9c78be" class="">Casting</h3><ul id="34e939e5-c364-4ffc-bec3-c49bfc9d151e" class="bulleted-list"><li style="list-style-type:disc">Type casting is when you assign a value of one primitive data type to another type<ul id="75e92f6f-b0da-45a1-8c70-9b60aeb4fdb2" class="bulleted-list"><li style="list-style-type:circle">this allows you to change an int back to a char without an error</li></ul><pre id="304d2f72-05c6-488d-a444-511a803e6f6e" class="code"><code>public static char characterAddition(char a, int b) {
+	return (char)(a+b);
+}</code></pre></li></ul><h3 id="2c5ca078-283b-4d2c-a4f7-80d953df4536" class="">Let’s talk about String</h3><ul id="ea256fa0-37a9-4d88-8b74-48ad087b667d" class="bulleted-list"><li style="list-style-type:disc">A <code>String</code> is a collection of ordered characters<ul id="0c8fb516-862d-4cfb-9e41-3d9e78ec91f5" class="bulleted-list"><li style="list-style-type:circle">it has data</li></ul><ul id="1115c6e3-9fe1-4152-9f53-7ea6bf999ec4" class="bulleted-list"><li style="list-style-type:circle">it has functionality (methods)</li></ul><ul id="4c4a743a-3921-4876-b2b8-cac3ab26feb4" class="bulleted-list"><li style="list-style-type:circle">It is also immutable (Can’t be directly modified)<ul id="2dd0e9d7-2ba0-4e13-9019-b85893eafa37" class="bulleted-list"><li style="list-style-type:square">Every method that builds a string, returns a copy</li></ul><ul id="a175140b-7890-44c1-b560-266ebcccce5b" class="bulleted-list"><li style="list-style-type:square">will cover this more in the future</li></ul></li></ul></li></ul><ul id="69f7b48f-2638-47e2-84f3-4c189b2a1e74" class="bulleted-list"><li style="list-style-type:disc">But what does a String really look like?</li></ul><h3 id="3db52cd9-60ae-4c31-8952-6e941175725e" class="">First, Let’s Think about memory</h3><ul id="6a26574a-86cd-4a37-b630-262c9a557bbd" class="bulleted-list"><li style="list-style-type:disc">Storing variables in memory<ul id="82c572b5-21f2-49fa-831f-d628a18db1a3" class="bulleted-list"><li style="list-style-type:circle">Wherever the computer decides</li></ul><ul id="b2dcfabb-9f6c-4b5c-b4eb-425fd6beb59d" class="bulleted-list"><li style="list-style-type:circle">Value stored in the location</li></ul><ul id="015f4058-cc3b-4370-87b8-223c752e2e70" class="bulleted-list"><li style="list-style-type:circle">Variable name points towards location</li></ul></li></ul><ul id="5e91f806-1f6b-4457-b694-c52844c11f24" class="bulleted-list"><li style="list-style-type:disc">Example<pre id="da123ea2-c4b3-49a5-ad28-4251f531fd89" class="code"><code>char c = &#x27;c&#x27;;
+char m = &#x27;m&#x27;;</code></pre></li></ul><h3 id="2b558b64-c3d6-4fc0-badc-991b6d832091" class="">String Methods</h3><ul id="196ab5d3-fb7d-47af-b48b-5518c9ada827" class="bulleted-list"><li style="list-style-type:disc">Ordered collection of characters<ul id="2685d5da-5116-42d0-b192-0b4b13deebd0" class="bulleted-list"><li style="list-style-type:circle">Indexed - starting at 0</li></ul><ul id="0f09e335-24fc-4c92-8a64-0a5dfffe3942" class="bulleted-list"><li style="list-style-type:circle">‘c’ is at index 0</li></ul><ul id="e1522ef0-7516-41d6-9592-7c88efd5cad2" class="bulleted-list"><li style="list-style-type:circle">‘a’ is at index 1</li></ul></li></ul><ul id="76ce686f-c9ae-4527-876b-a62d9ce34c66" class="bulleted-list"><li style="list-style-type:disc"><code>char character = mascot.charAt(2);</code><ul id="3c8d39ca-ac75-4e20-a02d-434d70ae52f4" class="bulleted-list"><li style="list-style-type:circle">returns ‘M’</li></ul></li></ul><ul id="80cbfbe9-5722-4580-9df4-93ef06934f0e" class="bulleted-list"><li style="list-style-type:disc">How many characters?<ul id="b2eb098e-635c-4585-b833-de8b142ddbfe" class="bulleted-list"><li style="list-style-type:circle"><code>int len = mascot.length();</code> = 3</li></ul></li></ul><ul id="a4ad7e77-68cf-488a-81e4-e2ef60f4837b" class="bulleted-list"><li style="list-style-type:disc">No matter how large the string<ul id="b9e3d781-99e4-4bc3-aac0-d5b045429390" class="bulleted-list"><li style="list-style-type:circle">starts at 0</li></ul><ul id="e2157f8c-ce0f-4ea4-bdb2-6f039d150d3d" class="bulleted-list"><li style="list-style-type:circle">has a length</li></ul><ul id="a552e406-29a7-4a34-80cd-49abb12c5b66" class="bulleted-list"><li style="list-style-type:circle">always know first and last index</li></ul></li></ul><h3 id="a432979d-9a3f-4491-92d1-1c6f93eb433c" class="">String Concatenation</h3><ul id="b8c01157-82cf-4d10-8e8a-442035417615" class="bulleted-list"><li style="list-style-type:disc">Adds two strings together<ul id="5bdb9218-45a3-4082-81c8-1697d7ed4230" class="bulleted-list"><li style="list-style-type:circle">better worded: String objects added to other types (string or primitive or other objects)</li></ul></li></ul><ul id="3594bc2e-24ea-4f4f-b034-db13ef3f5a4e" class="bulleted-list"><li style="list-style-type:disc">Step 1 converts everything to a String. So 1 number becomes “1”</li></ul><ul id="87bdf835-7f34-4697-9776-cd6dca3c67ef" class="bulleted-list"><li style="list-style-type:disc">Step 2 puts it all together, exactly as written<pre id="49b4a032-3d8f-4f02-aa93-976602a04321" class="code"><code>int aNumber = 42;
+String question = &quot;The answer to life&quot;;
+System.out.println(question + aNumber);</code></pre></li></ul><h3 id="5568b996-344e-4b8e-abed-9a31295bb854" class="">String.format / printf</h3><ul id="079d7113-64e0-45cd-b798-40b600bb74f9" class="bulleted-list"><li style="list-style-type:disc">We know we can write strings via concatenation</li></ul><ul id="93223539-f72d-42a7-82a3-30a53d2636cc" class="bulleted-list"><li style="list-style-type:disc">However, that can be awkward - introducing <code>String.format</code></li></ul><pre id="7351d79c-f976-4e07-9c9b-4113a5997871" class="code"><code>String towelColor = &quot;pink&quot;;
+String dontPanic = String.format(&quot;Don&#x27;t forget to bring your %s towel&quot;, towelColor);
+String txt = &quot;Don&#x27;t panic&quot;;
+String heading1 = String.format(&quot;&lt;h1&gt;%s&lt;/h1&gt;&quot;, txt);</code></pre><p id="0d6324de-576b-4434-a27f-2e97a0d2c578" class="">
+</p><table id="55f18b9b-d77c-4eb7-bfa4-21c972861d9c" class="simple-table"><thead class="simple-table-header"><tr id="cec32491-52f7-4c4e-a455-826e360f2ca1"><th id="E@Ua" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px"><strong>Format specifier</strong></th><th id="][GV" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Data Type(s)</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></th><th id="sr{V" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px"><strong><strong><strong><strong><strong>Notes</strong></strong></strong></strong></strong></th></tr></thead><tbody><tr id="bcc441f9-3f92-4d98-9a33-02341013ffb0"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%c</code></td><td id="][GV" class="" style="width:232.66666666666666px">char</td><td id="sr{V" class="" style="width:232.66666666666666px">Prints a single unicode character</td></tr><tr id="6e94eeb2-5542-442e-8d83-cf2014038124"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%d</code></td><td id="][GV" class="" style="width:232.66666666666666px">int, long, short</td><td id="sr{V" class="" style="width:232.66666666666666px">prints a decimal integer value</td></tr><tr id="a79982ff-0e52-49fa-84b3-ac759a8d0b18"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%o</code></td><td id="][GV" class="" style="width:232.66666666666666px">int, long, short</td><td id="sr{V" class="" style="width:232.66666666666666px">prints an octal integer number</td></tr><tr id="73e5422f-e84b-4e0a-91a5-31282ddd1c96"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%h</code></td><td id="][GV" class="" style="width:232.66666666666666px">int, char, long, short</td><td id="sr{V" class="" style="width:232.66666666666666px">prints a hexadecimal integer value</td></tr><tr id="d1b465f4-6bef-4620-83a6-c0d479c69077"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%f</code> </td><td id="][GV" class="" style="width:232.66666666666666px">float, double</td><td id="sr{V" class="" style="width:232.66666666666666px">prints a float value</td></tr><tr id="9424e71a-092a-4b2c-9c60-15286b9e3b93"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%e</code></td><td id="][GV" class="" style="width:232.66666666666666px">float, double</td><td id="sr{V" class="" style="width:232.66666666666666px">prints a float in scientific notation</td></tr><tr id="820852da-60d9-4948-83a8-088fc226bbab"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%s</code></td><td id="][GV" class="" style="width:232.66666666666666px">String</td><td id="sr{V" class="" style="width:232.66666666666666px">prints the characters in a String variable or literal</td></tr><tr id="7461d20c-14cb-4f8a-a22f-ca889d8cc1c1"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%%</code></td><td id="][GV" class="" style="width:232.66666666666666px">N/A</td><td id="sr{V" class="" style="width:232.66666666666666px">Prints the “%” character</td></tr><tr id="20ecbdc9-3fe7-4e14-aaf3-24bc215171f5"><td id="E@Ua" class="" style="width:232.66666666666666px"><code>%n</code></td><td id="][GV" class="" style="width:232.66666666666666px">N/A</td><td id="sr{V" class="" style="width:232.66666666666666px">prints the platform specific new-line character</td></tr></tbody></table><h3 id="662c4912-5b3e-4dd3-98fc-c099f0b5df1b" class="">Floating point values</h3><table id="13c13c93-e647-4220-aa6c-e2db955982fb" class="simple-table"><thead class="simple-table-header"><tr id="4d99335c-7725-4e09-8d05-c89fa6e4814b"><th id="?~Oj" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Sub-specifier</th><th id="T\S`" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Description</th><th id="_rxI" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Example</th></tr></thead><tbody><tr id="dfc38b7f-cdd8-4116-a45b-466fc712bbcd"><td id="?~Oj" class="" style="width:232.66666666666666px">width</td><td id="T\S`" class="" style="width:232.66666666666666px">Specifies the min. # of chars to print. If the formatted value has more chars than the width, the value will not be truncated, if the formatted value has fewer characters than the width, the output will be padded with spaces (or 0’s if the ‘0’ flag is specified</td><td id="_rxI" class="" style="width:232.66666666666666px"><code>printf(&quot;Value: %7.2f&quot;, myFloat);
+
+Value: 12.34</code></td></tr><tr id="20a626a2-5f8e-409b-8868-f7ccc1fbc66f"><td id="?~Oj" class="" style="width:232.66666666666666px">.precision</td><td id="T\S`" class="" style="width:232.66666666666666px">Specifies the number of digits to print following the decimal point. If the precision is not specified a default precision of 6 is used</td><td id="_rxI" class="" style="width:232.66666666666666px"><code>printf(&quot;%.4f&quot;, myFloat);
+
+12.3400</code></td></tr><tr id="49090ef2-1921-47ee-a40f-ed5bbf06d9ad"><td id="?~Oj" class="" style="width:232.66666666666666px">flags</td><td id="T\S`" class="" style="width:232.66666666666666px">-: left aligns the output
++: prints a preceding + sign for positive values. Negative numbers are always printed with the - sign
+0: pads the out with 0’s when formatted value has fewer characters than the width
+space: prints the preceding space for positive value</td><td id="_rxI" class="" style="width:232.66666666666666px"><code>printf(&quot;%+f&quot;, myFloat);
+
++12.340000</code></td></tr></tbody></table><p id="e927366b-cb9e-427b-9feb-0dbbd51001a8" class="">
+</p><hr id="78bc80aa-94a7-4849-ac65-e8099b727cfc"/><h2 id="1e0195da-e4b1-4677-b80c-fc583c2311d8" class="">9/6/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/03_01_Branching.pdf">Branching</a></h2><h3 id="41227d83-c15c-45e7-9254-d2fe0a6b218a" class="">Basic Conditionals</h3><ul id="64558036-5a3f-4e8e-9656-0dbd2abb7813" class="bulleted-list"><li style="list-style-type:disc">Logic that evaluates as <ul id="6025e3b8-b614-4fcd-8386-8583e1d7756f" class="bulleted-list"><li style="list-style-type:circle">yes or no</li></ul><ul id="31ff3d8a-13c8-42d1-a0d8-9ec58ec37ca4" class="bulleted-list"><li style="list-style-type:circle">true or false</li></ul></li></ul><ul id="a883f311-afcc-4635-b789-b3d24fd5326f" class="bulleted-list"><li style="list-style-type:disc">Essential in all programming langs<ul id="4b957e77-bc72-4b5f-9975-8b2832640429" class="bulleted-list"><li style="list-style-type:circle">you do this all the time</li></ul><ul id="04343e26-816a-400c-8958-68bf88189a19" class="bulleted-list"><li style="list-style-type:circle">100 pennies grater than $1?</li></ul></li></ul><ul id="ca6d33fa-6669-48c6-9278-4633e1b64c76" class="bulleted-list"><li style="list-style-type:disc">Conditional operators<ul id="4f23c1d5-8e3c-4825-afc7-5370192fe4d9" class="bulleted-list"><li style="list-style-type:circle"><code>==</code> equals</li></ul><ul id="af88ea0f-555a-4e44-8445-c80f1712d09b" class="bulleted-list"><li style="list-style-type:circle"><code>&lt;</code> less than </li></ul><ul id="df811f5b-3510-4757-9cfa-a7489262168b" class="bulleted-list"><li style="list-style-type:circle"><code>&gt;</code> greater than</li></ul><ul id="b446422d-0fcf-4138-8953-89d2d0b8ee40" class="bulleted-list"><li style="list-style-type:circle"><code>&lt;=</code> less than or equal</li></ul><ul id="65611d96-3fdd-44cd-aca1-e38859875820" class="bulleted-list"><li style="list-style-type:circle"><code>&gt;=</code> greater than or equal</li></ul><ul id="483a3fd9-3027-4253-8a3f-f13328ce9dfa" class="bulleted-list"><li style="list-style-type:circle"><code>!=</code> not equal</li></ul></li></ul><h3 id="1bf6b395-5e92-4cde-95e9-0c9ff297ca8e" class="">Conditional Expressions</h3><ul id="ec3a269c-c2f8-480b-bd31-c649d2e54217" class="bulleted-list"><li style="list-style-type:disc">Conditional operators<ul id="8d61749d-5c9b-4843-a559-803d67dc34aa" class="bulleted-list"><li style="list-style-type:circle">Evaluated second to last (storing values or returns last)</li></ul></li></ul><ul id="d4e1c02f-e917-4b34-9d55-907d5cafe497" class="bulleted-list"><li style="list-style-type:disc">Always two sides / pairs<ul id="7fdb513a-9caf-4ab2-8d6d-d53e58cab8d7" class="bulleted-list"><li style="list-style-type:circle">means it is true or false</li></ul><ul id="ad230204-fae9-45e0-a3fa-4df5f27f4e98" class="bulleted-list"><li style="list-style-type:circle">boolean primitive can store it, and you can return boolean from a method</li></ul></li></ul><h3 id="e15cb201-a521-45d1-b137-c1e9be875527" class="">If Statements</h3><ul id="c557a892-942a-428b-b2dc-5707a17205e3" class="bulleted-list"><li style="list-style-type:disc">if / else statements<ul id="1974cf96-3303-4e99-9f86-6cc948b8e8e8" class="bulleted-list"><li style="list-style-type:circle">only run instructions based on true or false values</li></ul><ul id="1b7d0c0c-766c-4135-9f7e-4bbdee366f43" class="bulleted-list"><li style="list-style-type:circle">essentially, choose to run certain lines of code or skip them</li></ul><pre id="8c41a5b1-0dbb-4cfe-b3f0-16b9d2909c83" class="code"><code>if (puppies &gt; 100) {
+	System.out.println(&quot;So many&quot;);
+} else {
+	System.out.println(&quot;where they at&quot;);
+}
+
+if (puppies == 0) System.out.println(&quot;dang&quot;);</code></pre></li></ul><ul id="b70b5bad-e3bf-400a-bf89-d4ac130e4f95" class="bulleted-list"><li style="list-style-type:disc">they can be nested <pre id="9608add7-f729-4e6c-96a9-bd509d8d6159" class="code"><code>if (something) {
+	if (somethingElse) {
+		if (anotherThing) {
+			System.out.print(&quot;too much nesting = gross&quot;);
+		} else {
+			if (why) {
+				return stop;
+			}
+		}
+	}
+}</code></pre></li></ul><p id="c8b3c543-7cc5-429f-9517-9d57f579ad00" class="">
+</p><hr id="3b5c7a59-972d-4d85-9566-ddb091787f74"/><h2 id="49d24c3f-b465-40e1-82a9-fc94e178dfa1" class="">9/8/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/03_02_Loops.pdf">Loops</a></h2><h2 id="feddd2a7-1ec6-47c5-83f6-a6a3fc9b9c8a" class="">What are computers good at?</h2><p id="3062251b-909e-41cd-b868-4126d4979fe8" class="">Computers are good at three things
+- Calculations
+- Formal Logic
+- Repeating what you just asked it to do
+- Iterations</p><p id="36fa0898-b083-400d-8c50-8693e24e21fc" class="">These three things are coincidently three things that humans tend to struggle with</p><p id="100f16a7-4ac6-49de-a43a-979a8e785a26" class="">If you understand
+- Calculations
+- Formal logic
+- And loops
+You will be able to create impressive programs</p><h2 id="20d75d6a-0d6f-4f8d-8c9a-105b98079f04" class="">Loop types in Java (and most languages)</h2><ul id="a84f6cbf-4db4-41bf-ac56-c52e82b77574" class="bulleted-list"><li style="list-style-type:disc">While loops</li></ul><ul id="fea5d8c4-0fff-483b-840a-83c267e867d9" class="bulleted-list"><li style="list-style-type:disc">for loops</li></ul><ul id="c6c3e4a5-c105-4f10-803b-68b981b8b36f" class="bulleted-list"><li style="list-style-type:disc">for:each loops</li></ul><ul id="a395a945-04d9-4ded-83ca-44c48bde645c" class="bulleted-list"><li style="list-style-type:disc">do while loops</li></ul><ul id="0adcf446-f67c-4621-b30f-5dcc68e338b5" class="bulleted-list"><li style="list-style-type:disc">All loops have<ul id="ea62b32e-0254-4e98-870d-79aefb964a89" class="bulleted-list"><li style="list-style-type:circle">an iterator</li></ul><ul id="49a69f86-eba2-4d00-a8b2-609efe574206" class="bulleted-list"><li style="list-style-type:circle">a condition to exit</li></ul></li></ul><h2 id="498b6ea1-9662-411e-8160-ccc34643dd44" class="">While Loop</h2><p id="025dad4f-2fa5-4450-a4a1-69b187951840" class="">While loops are good when
+Your iteration variable is created outside the loop
+You need your iterator variabe utside of the loop</p><pre id="0981781d-d724-497e-b1c9-a4a53a0fec0c" class="code code-wrap"><code>while (true condition) {code}
+
+int start = 0;
+int end = 2;
+while (start &lt; end) {
+	start ++;
+}
+</code></pre><h2 id="4a999df8-5838-4276-9e5c-a4f3e75ef5d7" class="">For Loop</h2><p id="669b11ed-45a9-4c6f-9244-0ddbd13c564d" class="">Good when
+Your loop has a set start and end
+You don&#x27;t need to keep your iterator ouside the loop</p><pre id="4d33060e-21a6-440b-95fa-016f9e6b7cf1" class="code code-wrap"><code>for (variable; condition; iterator) {code}
+
+for (int i = 0; i &lt; 10; i++) {
+	System.out.println(i);
+}
+</code></pre><p id="1813ca59-9b9a-46ef-835d-27e07f8f29f0" class="">
+</p><hr id="da16fa75-035f-4259-80d9-9b13d2712431"/><h2 id="a7cd49f5-a988-43be-b869-6697c98a27e1" class="">9/11/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/03_03_JavaDocs_UML.pdf">Javadocs and UML</a></h2><h3 id="5f183e4b-17da-4b0e-84d8-adf3d054060d" class="">Javadoc</h3><ul id="48b823bb-061e-42bc-8fac-766d40fbdf85" class="bulleted-list"><li style="list-style-type:disc">Parses source code along with specially formatted comments to generate documentation</li></ul><ul id="f8c37ef9-ffc2-42ce-b266-fd54db130bca" class="bulleted-list"><li style="list-style-type:disc">the documentation generated is known as an API</li></ul><ul id="a094858d-f1d9-427e-8c50-4c81de6e51d7" class="bulleted-list"><li style="list-style-type:disc">start with <code>/** &lt;enter&gt;</code></li></ul><ul id="9573591e-361f-4fdf-bf3a-b71edd0e97be" class="bulleted-list"><li style="list-style-type:disc">You will have <pre id="15d2d0e2-64dc-4e53-9381-6ec5864b249a" class="code"><code>/**
+*
+*/</code></pre></li></ul><h3 id="1f72727a-f3c6-4e21-864a-c692a4a4e35e" class="">UML</h3><ul id="af410cdf-2e57-45cb-9717-65015f2b91f9" class="bulleted-list"><li style="list-style-type:disc">UML (Unified modeling language)<ul id="55525300-7d5a-4745-9cbe-2e6f4577cb6a" class="bulleted-list"><li style="list-style-type:circle">is a standard language for specifying, visualizing, constructing, and documenting the artifacts of software systems</li></ul></li></ul></div></article></body></html>
