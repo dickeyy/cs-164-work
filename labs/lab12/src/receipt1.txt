@@ -1,0 +1,16 @@
+--------------------
+PIZZA          12.97
+           PEPPERONI
+            TOMATOES
+--------------------
+PIZZA          14.46
+              SALAMI
+           MUSHROOMS
+              OLIVES
+--------------------
+SALAD          10.50
+              MEDIUM
+               RANCH
+--------------------
+TOTAL:         37.93
+--------------------
