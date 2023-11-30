@@ -1,0 +1,14 @@
+wood log,X,X,X,X,X,X,X,X
+chest wood,wood,wood,wood,X,wood,wood,wood,wood
+furnace stone,stone,stone,stone,X,stone,stone,stone,stone
+torch X,X,X,X,coal,X,X,stick,X
+axe iron,iron,X,iron,stick,X,X,stick,X
+sword X,iron,X,X,iron,X,X,stick,X
+pickaxe iron,iron,iron,X,stick,X,X,stick,X
+shovel X,iron,X,X,stick,X,X,stick,X
+bucket X,X,X,iron,X,iron,X,iron,X
+flint&steel X,X,X,iron,X,X,X,flint,X
+boots(diamond) X,X,X,diamond,X,diamond,diamond,X,diamond
+helmet(diamond) X,X,X,diamond,diamond,diamond,diamond,X,diamond
+chestplate(diamond) diamond,X,diamond,diamond,diamond,diamond,diamond,diamond,diamond
+leggings(diamond) diamond,diamond,diamond,diamond,X,diamond,diamond,X,diamond
