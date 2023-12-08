@@ -1,0 +1,4 @@
+MOB,Kobold,25,9,-1,D4
+MOB,Umber Hulk,55,13,1,D6
+FORTUNE,Prowess,0,0,2,D12
+FORTUNE,Valor,10,0,0,-
