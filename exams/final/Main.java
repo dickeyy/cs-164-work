@@ -14,7 +14,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        String testFile = "sample.csv";
+        String testFile = "./exams/final/sample.csv";
         DataSet set = new DataSet(testFile);
         AverageDataCalc averages = new AverageDataCalc(set);
         System.out.println(averages);
