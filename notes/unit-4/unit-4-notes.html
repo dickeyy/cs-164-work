@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 4 Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6a24902b-34c6-40e6-b477-1e2b71118131" class="page sans"><header><h1 class="page-title">Unit 4 Notes</h1><p class="page-description"></p></header><div class="page-body"><hr id="896a7177-fe20-4a2c-ad06-86b1c14c5f89"/><h2 id="7337e134-dbb6-4ef4-8af8-5594c208f958" class="">11/13/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/13_01_More%20Recursion.pdf">More Recursion</a></h2><h3 id="9e87ded3-08a1-4467-9ea0-1155f599baae" class="">Recursion Review</h3><ul id="94210b13-925d-4fa4-8829-f036e67c9369" class="bulleted-list"><li style="list-style-type:disc">a way to <code>repeat</code> code without loops </li></ul><ul id="c37b7eba-6acf-40fc-bd64-3e875b9bd354" class="bulleted-list"><li style="list-style-type:disc">Methods that call themselves</li></ul><ul id="33f07166-d47d-45a0-b9ee-e9a9f898fb5e" class="bulleted-list"><li style="list-style-type:disc">Recursive methods have <ul id="216110bb-ebb0-4eef-9a17-8f11f0426369" class="bulleted-list"><li style="list-style-type:circle">A base case (condition to stop)</li></ul><ul id="e4666578-7947-4e24-a7f3-2d3f4444025d" class="bulleted-list"><li style="list-style-type:circle">Recursive call</li></ul><ul id="b2c83081-e166-4875-af7b-2621e58e3f5c" class="bulleted-list"><li style="list-style-type:circle">Return values (good design)</li></ul></li></ul><h3 id="d998555d-d5d9-4dd2-81fe-c9fe8d67941b" class="">The Memory Stack</h3><ul id="1a4bf32f-b8cf-46f5-bc3f-d806a4b70024" class="bulleted-list"><li style="list-style-type:disc">Math factorials<ul id="cd6c281f-3be3-45ba-81c6-eba6a6a8d97e" class="bulleted-list"><li style="list-style-type:circle">N = 6, factorial is <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><mn>2</mn><mo>×</mo><mn>3</mn><mo>×</mo><mn>4</mn><mo>×</mo><mn>5</mn><mo>×</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">1\times2\times3\times4\times5\times6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span></span><span>﻿</span></span></li></ul></li></ul><ul id="49c850b1-0b7f-43dd-b46d-bcdb4a1526fb" class="bulleted-list"><li style="list-style-type:disc">When calling methods<ul id="b4fe0375-8d56-4c74-aac9-360ab6c6cd70" class="bulleted-list"><li style="list-style-type:circle">The method is pushed onto the memory stack</li></ul><ul id="c75fad1d-f08a-4ce9-a6f9-45c9f4b6c128" class="bulleted-list"><li style="list-style-type:circle">Removed when done</li></ul></li></ul><ul id="0f911019-4fc9-445e-bd87-f4d79fb9c0d8" class="bulleted-list"><li style="list-style-type:disc">This causes the following to happen in memory<ul id="87ae66b9-e409-4a66-9061-9e5c67a25fd4" class="bulleted-list"><li style="list-style-type:circle">You will cover this more in CS250 and 220</li></ul></li></ul><h3 id="ba61c242-ecfa-40e9-947e-c2673eef49fd" class="">Overview</h3><ul id="c5fae7bf-048d-4c6f-bc2f-7689316cf9f8" class="bulleted-list"><li style="list-style-type:disc">Recursion <ul id="b1b0d623-d914-4c92-805a-2b3a59f28680" class="bulleted-list"><li style="list-style-type:circle">When to use it?<ul id="54858d75-7078-4a7c-b127-35b63471431c" class="bulleted-list"><li style="list-style-type:square">When you have limited paths to follow</li></ul><ul id="0a2e6cb4-bf9f-4775-b854-05c0270543de" class="bulleted-list"><li style="list-style-type:square">When you don’t know your loop depth</li></ul><ul id="225adf04-3202-45e7-b255-28b101ad5734" class="bulleted-list"><li style="list-style-type:square">When your data is already set up a tree</li></ul></li></ul><ul id="9b1369fc-a277-446f-b8f7-f3b0db8d2cdb" class="bulleted-list"><li style="list-style-type:circle">You will come across it again - CS165</li></ul><ul id="d4da64fb-815d-470c-b60d-5e42f958e91a" class="bulleted-list"><li style="list-style-type:circle">Always remember your base case!</li></ul></li></ul><ul id="448bcfe6-d4b5-4f92-a6f0-9e15f8f5a445" class="bulleted-list"><li style="list-style-type:disc">For example let’s consider the following sequence of numbers<ul id="64d77081-d00f-4de1-93e9-0cd4c3be6cf0" class="bulleted-list"><li style="list-style-type:circle"><code>[0,1,2,3,4,5,6,7,8,9,10]</code></li></ul><ul id="11d7afa6-38e6-4629-87d1-31dd793c37e6" class="bulleted-list"><li style="list-style-type:circle">Numbers are ordered </li></ul><ul id="c33bef2e-a769-40bb-9181-05b48b6012de" class="bulleted-list"><li style="list-style-type:circle">We could structure this number line as a “tree”</li></ul></li></ul><p id="3275fc7d-6953-4d11-9832-c48510aaa305" class="">
+</p><hr id="45e5b560-c6ba-47b4-a7ba-50e4649486b5"/><p id="be88bcfe-62b2-4d3f-a74b-fbec1cea945f" class="">
+</p><hr id="07f303e1-a155-4af0-81e8-565d31f2c6b0"/><h2 id="6ad503ea-c079-4330-9600-b5a2a6e3bdb2" class="">11/27/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/15_01_Arrays2D.pdf">Arrays 2D</a></h2><h3 id="3fe2ac15-cff3-44ed-92bd-d1364f019bd9" class="">Arrays - Reminder</h3><ul id="f78b281a-1397-4fe7-bff9-daa308417846" class="bulleted-list"><li style="list-style-type:disc">Ways to store<ul id="0c5335bc-6afa-4e2c-9c4c-85bdd5d04ff7" class="bulleted-list"><li style="list-style-type:circle">Variables in order</li></ul><ul id="99634dde-416a-4416-98a7-85ed4bd1dc2e" class="bulleted-list"><li style="list-style-type:circle">Index from <code>0...N</code></li></ul></li></ul><ul id="5425bc6d-de3d-4f41-9863-12b2db9ea50f" class="bulleted-list"><li style="list-style-type:disc">Arrays are<ul id="48d79447-0f8c-4b9e-adde-6eb2a0005009" class="bulleted-list"><li style="list-style-type:circle">A type themselves</li></ul><ul id="5520472c-8976-4702-9e15-a32e3baedcd0" class="bulleted-list"><li style="list-style-type:circle">The value of the array<ul id="8e2613b2-7dd2-4160-8021-74698a8b139a" class="bulleted-list"><li style="list-style-type:square">Reference to memory location</li></ul></li></ul><ul id="e79db3f6-c548-4e45-acd9-6804bd1cdfab" class="bulleted-list"><li style="list-style-type:circle"><code>Array.length</code> gives us the total memory allocated</li></ul></li></ul><ul id="f4b384d6-d375-4df1-8e17-c82e8cc1286d" class="bulleted-list"><li style="list-style-type:disc">Arrays can<ul id="e6015529-c50e-479c-a39e-a58090fde416" class="bulleted-list"><li style="list-style-type:circle">Be any size - as long as you allocate it</li></ul><ul id="6e812e6e-73f4-43ce-a346-edd88970ee61" class="bulleted-list"><li style="list-style-type:circle">Store any valid type <ul id="54533bb3-0a15-4b9f-8cb9-bbf5420b342b" class="bulleted-list"><li style="list-style-type:square">Primitives and objects</li></ul></li></ul></li></ul><h3 id="118b6a27-3c07-4f0e-9965-20668a0edb15" class="">Easy Access with For-Each</h3><ul id="001a6f20-1535-451f-afe0-3109253e9c19" class="bulleted-list"><li style="list-style-type:disc">For each loops<ul id="d207fe6f-60fb-49d0-abd6-65b35cf9971c" class="bulleted-list"><li style="list-style-type:circle">Specialized for loops </li></ul><ul id="313ecce2-4cb6-4558-86b6-75c7fdacd6e2" class="bulleted-list"><li style="list-style-type:circle">Perfect for an array or other collections</li></ul></li></ul><ul id="86950960-5258-4487-81ef-83ab9548aed2" class="bulleted-list"><li style="list-style-type:disc">Loops through every value<ul id="090b3c53-c911-4b83-a4b4-03cf8cd581e1" class="bulleted-list"><li style="list-style-type:circle">Stores it in a temp variable</li></ul></li></ul><ul id="b1736f55-3c81-498e-824b-892d93e3a0e8" class="bulleted-list"><li style="list-style-type:disc">Same as some very common for-loops</li></ul><h3 id="602b3b74-f8cf-4f56-96ce-eba70ec0f75e" class="">Arrays and Objects?</h3><ul id="a9c9b807-23cc-42c7-91f9-a118ff8e3037" class="bulleted-list"><li style="list-style-type:disc">Primitives - values are stored</li></ul><ul id="4bb4ff01-9aba-4f7c-83bb-6f38902470bb" class="bulleted-list"><li style="list-style-type:disc">Objects - references to values</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="952bcc47-d9a5-4c2e-bc50-14efd7c07e1b" class="code"><code class="language-Java">Box[] values = new Box[10];
+MyObject[] values = new MyObject[5];</code></pre><ul id="7dd2d0f5-065d-4eda-94cd-704c111d67a5" class="bulleted-list"><li style="list-style-type:disc">Can you have an array of arrays<ul id="0a241c87-59d7-4ac3-a967-b84a30bfa52a" class="bulleted-list"><li style="list-style-type:circle">Yes</li></ul></li></ul><ul id="480e0ae5-ab85-4ecc-b864-7c66e06c880a" class="bulleted-list"><li style="list-style-type:disc">Arrays have type<ul id="df8cf1a3-2ff5-4a44-b78a-4e6f306cfe9f" class="bulleted-list"><li style="list-style-type:circle">Anything with type can be an array</li></ul></li></ul><h3 id="5f671cf8-b829-4929-b07f-a860445e779c" class="">2D Arrays</h3><ul id="c9820311-cf46-4248-aae6-ccfe25bbda7d" class="bulleted-list"><li style="list-style-type:disc">Array of arrays</li></ul><ul id="cfb466be-166b-483f-8e39-a421f47b1661" class="bulleted-list"><li style="list-style-type:disc">Same type</li></ul><ul id="8d6f04b8-7769-48f7-a871-5b555252b67c" class="bulleted-list"><li style="list-style-type:disc">Very common<ul id="3b99ee7c-eb90-4ff2-82ca-898e31a8e5fd" class="bulleted-list"><li style="list-style-type:circle">So much so we have a shorthand notation</li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3a5b22fe-0621-4b8c-b73a-b9dd37b2582f" class="code"><code class="language-Java">int[][] arr2d = {{1,2,3},{6,7,8},{12,13,14}};</code></pre><h3 id="3d04558b-3097-4159-b1eb-5452ee7a311d" class="">2D Arrays - Irregular / Ragged Arrays</h3><ul id="4d75d66c-3739-4d39-a30c-ecda528d55d4" class="bulleted-list"><li style="list-style-type:disc">You can have arrays of variable length within an array</li></ul><ul id="992d0fcc-65c7-4f12-9d4f-eacf310291e8" class="bulleted-list"><li style="list-style-type:disc">Those are called “irregular or ragged” arrays</li></ul><p id="7ce04331-4819-4be1-bb98-52070d400b79" class="">
+</p><hr id="ce2a8431-1e68-42ee-b5cc-e2a5262a2c8f"/><h2 id="3063b4c9-9180-48a8-9fa1-15d9cafc2d35" class="">11/29/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/14_03_Collections.pdf">Advanced Topics: Collections</a></h2><h3 id="e8b4ffe7-8250-4746-858c-782bfebed612" class="">ArrayLists</h3><ul id="f042ad9d-1343-47ce-8c89-025137d93983" class="bulleted-list"><li style="list-style-type:disc">Part of the Java Collections library</li></ul><ul id="2a9165fc-59f4-4f31-975a-9119b81c9648" class="bulleted-list"><li style="list-style-type:disc">Assumes default naming conventions<ul id="b5037def-d449-403c-a437-b768d47b3b27" class="bulleted-list"><li style="list-style-type:circle">Done through interfaces and abstract classes</li></ul></li></ul><ul id="5a5b1e6b-388e-4044-9cb0-1f7cd43048aa" class="bulleted-list"><li style="list-style-type:disc"><code>.add(Type)</code></li></ul><ul id="b5052066-de2e-4fdf-a82f-2bd0ebbf43c7" class="bulleted-list"><li style="list-style-type:disc"><code>.remove(location)</code></li></ul><ul id="f0356fe3-6eec-4e88-af6a-ad2dc57f7d50" class="bulleted-list"><li style="list-style-type:disc"><code>.size()</code></li></ul><ul id="d84092f6-6131-4f07-b952-e619cbff9a37" class="bulleted-list"><li style="list-style-type:disc">Is ArrayList always the best to use?<ul id="068e1c27-d415-4f89-8e0b-fb9702986751" class="bulleted-list"><li style="list-style-type:circle">what happens if it is <em>very</em> large?</li></ul><ul id="68ef15e8-7ee3-42fe-88f4-2a08010250fc" class="bulleted-list"><li style="list-style-type:circle">Hard to find continuous memory in order</li></ul><ul id="9bf3266e-46c0-425c-8e89-cc10cfa21376" class="bulleted-list"><li style="list-style-type:circle">Causes actions to slow down</li></ul></li></ul><ul id="851699e9-f834-4147-ae28-bef7ccc80d3c" class="bulleted-list"><li style="list-style-type:disc">Introducing Data Structures (CS165)</li></ul><h3 id="875b51c2-aab0-472f-9f64-f1ca5d16a691" class="">LinkedList</h3><ul id="3ac252ab-4b91-43f3-8863-df708824170a" class="bulleted-list"><li style="list-style-type:disc">Think about a chain </li></ul><ul id="4228aae7-f1c6-44e5-8827-cca811a6f80b" class="bulleted-list"><li style="list-style-type:disc">Each link connects to the next</li></ul><ul id="a676eaa9-59aa-4ddc-bf19-9b6c15f46213" class="bulleted-list"><li style="list-style-type:disc">Linked Lists<ul id="91e5c9e7-90c5-4974-b2b8-8a2e41c971e2" class="bulleted-list"><li style="list-style-type:circle">Connect objects to the next</li></ul><ul id="b902fd6b-a4ca-466f-a0ca-7a973d67af8a" class="bulleted-list"><li style="list-style-type:circle">But don’t want to worry about it all being ordered in memory</li></ul></li></ul><ul id="86910d86-be20-4fc1-8a55-6c7ec712446b" class="bulleted-list"><li style="list-style-type:disc">If you know the next, they can be anywhere</li></ul><ul id="b08e429f-e17e-4e27-97cf-66d3172be4f4" class="bulleted-list"><li style="list-style-type:disc">Pros<ul id="5a977356-7ddb-4017-8aa4-68efeac6b39b" class="bulleted-list"><li style="list-style-type:circle">memory efficient</li></ul></li></ul><ul id="204fe0e8-9a95-4720-a46e-fb3edf316160" class="bulleted-list"><li style="list-style-type:disc">Cons<ul id="24716501-2776-4081-b464-5a14bec9ffc3" class="bulleted-list"><li style="list-style-type:circle">What if a link is broken?</li></ul><ul id="4b86b9b6-5ea2-4502-8920-a76a3aeb3e97" class="bulleted-list"><li style="list-style-type:circle">Can you easily jump to the middle? No!</li></ul></li></ul><ul id="9db95ae0-ac6d-4380-ae44-dc5d3aea6f23" class="bulleted-list"><li style="list-style-type:disc">Also a foundation of blockchain</li></ul><h3 id="128874bf-0b4f-4a1d-b135-a903dbd14bec" class="">LinkedList vs. ArrayList</h3><ul id="da729581-5997-4366-934b-12182365f9ea" class="bulleted-list"><li style="list-style-type:disc">A LinkedList typically provides faster element insertion and removal at the list’s end (and middle if using ListIterator)<ul id="c955a84b-a47a-413d-b660-dfd4fe2790cf" class="bulleted-list"><li style="list-style-type:circle">LinkedList methods with index parameters, such as <code>get()</code> or <code>set()</code>, cause the list to be traversed from the first element to the specified element each time the method is called. Thus, using the LinkedLists’ <code>get()</code> or <code>set()</code> methods within a loop that iterates through all list elements is inefficient</li></ul></li></ul><ul id="211b97a4-b739-468e-8aae-ba118e58be52" class="bulleted-list"><li style="list-style-type:disc">ArrayList offers faster positional access with indices<ul id="31463be5-67f4-473e-abd3-bf4ef320a630" class="bulleted-list"><li style="list-style-type:circle">It maintains a based system for its elements as it uses an array data structure implicitly which makes it faster to search an element in the list</li></ul></li></ul><h3 id="494cb81f-aedc-491d-b4c5-89f859b581d8" class="">LinkedList - Practical Examples</h3><ul id="4a6be07a-8066-4f7f-b9d7-91c238c03920" class="bulleted-list"><li style="list-style-type:disc">Image viewer - Previous and next images are lined and can be accessed by the next and previous buttons</li></ul><ul id="6922352b-699c-43d5-a1c6-728af06ce175" class="bulleted-list"><li style="list-style-type:disc">Previous and next page in a web browser - We can access the previous and next URL searched in a web browser by pressing the back and next buttons since they are linked as a linked list</li></ul><ul id="cba0ec9f-f744-476a-b9ca-2e9d22f9ed12" class="bulleted-list"><li style="list-style-type:disc">Music player - Songs in the music player are linked to the previous and next songs. So you can play songs either from the start or end of the list </li></ul><h3 id="0184e7ae-f9ba-47d1-82f7-f9011e2741d2" class="">Map</h3><ul id="41251c4c-0aaa-4121-a640-1b6df3e05feb" class="bulleted-list"><li style="list-style-type:disc">What if you had key-value pairs?</li></ul><ul id="bb9ee7c9-5877-45e6-996a-c558e06ff736" class="bulleted-list"><li style="list-style-type:disc">Example: your address points to your house<ul id="563c050b-3c1a-4d22-ae58-23ca2a6620e0" class="bulleted-list"><li style="list-style-type:circle">Does a book of addresses, store all the information about your house?</li></ul><ul id="cf4505e8-f5a9-4d48-af93-eda2a290b527" class="bulleted-list"><li style="list-style-type:circle">Or simply the address, that can get the info?</li></ul></li></ul><ul id="bca5e823-845f-4781-9002-529f692c1a92" class="bulleted-list"><li style="list-style-type:disc">Introducing maps<ul id="8932fc32-0cf4-4dc2-a5f3-9c547b242d95" class="bulleted-list"><li style="list-style-type:circle">Pairs keys to values</li></ul><ul id="aa3309cb-1b8a-478e-971f-5b852c0d777a" class="bulleted-list"><li style="list-style-type:circle">Keys need to be unique</li></ul></li></ul><ul id="699bec4d-eb8f-4003-855a-c7f73bba4b58" class="bulleted-list"><li style="list-style-type:disc">Some uses: database indexing, network routing</li></ul><h3 id="64d1ef7f-1efc-4176-a5db-e080559b65cd" class="">Why does it matter?</h3><ul id="e4654e0f-35e8-4250-91b8-255a88c97a30" class="bulleted-list"><li style="list-style-type:disc">Different data structures<ul id="27994334-5e37-410e-b5db-b8ee2b2af5a6" class="bulleted-list"><li style="list-style-type:circle">affects speed, memory, and storage</li></ul><ul id="d2ee6154-df97-411f-9501-2d2e070297d1" class="bulleted-list"><li style="list-style-type:circle">Important for all fields <ul id="6c579ba1-d2ed-4f4d-8530-adb3deda0bb6" class="bulleted-list"><li style="list-style-type:square">Biology - large datasets</li></ul><ul id="b8fbb4a0-82df-4511-bc5f-755bcb172b97" class="bulleted-list"><li style="list-style-type:square">Graphics - speed is needed</li></ul><ul id="c14710f3-3021-4bae-93ba-6b906015160f" class="bulleted-list"><li style="list-style-type:square">Cybersecurity - processing serialized information over networks</li></ul></li></ul></li></ul><ul id="5c22799f-494e-4072-a7cb-4ed41037d91d" class="bulleted-list"><li style="list-style-type:disc">If you interview at FAANG<ul id="0bcde531-87bc-475d-a6cc-3add0e5a164d" class="bulleted-list"><li style="list-style-type:circle">They often give you a tech quiz</li></ul><ul id="4815c5cd-134a-4852-80ba-eba02a8b448c" class="bulleted-list"><li style="list-style-type:circle">Most of what is on that quiz - you learn in CS 165</li></ul></li></ul><ul id="43829e0a-9fd9-4297-8d4b-66d203a262c7" class="bulleted-list"><li style="list-style-type:disc">Take CS 165, it provides a major programming foundation.</li></ul><p id="c1ef4457-e14d-4792-ac8a-7fb001d130b9" class="">
+</p><hr id="9bf5a071-e6e8-48a5-afda-ee3262841576"/><p id="f5fe5766-048d-41ee-abc6-50eaa3196b29" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

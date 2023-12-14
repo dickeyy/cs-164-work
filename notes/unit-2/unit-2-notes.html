@@ -1,0 +1,737 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 2 Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0a966588-163c-4d30-9b7c-7e061dbed68f" class="page sans"><header><h1 class="page-title">Unit 2 Notes</h1><p class="page-description"></p></header><div class="page-body"><hr id="ba6d7d9e-8577-4243-898a-739e349385e5"/><h2 id="3661c0b8-3485-4392-8251-d64b104a7d26" class="">9/18/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/05_01_LogicalOperators.pdf">Complex Logic and Composition</a></h2><h3 id="242da802-b771-4131-9735-a776120c1817" class="">Complex Conditionals</h3><ul id="aba83173-60d3-4d98-a744-a71a5a92ca7b" class="bulleted-list"><li style="list-style-type:disc">a AND b - all must be true</li></ul><ul id="91334c97-c54f-4b96-9504-753f412d9dc5" class="bulleted-list"><li style="list-style-type:disc">a OR b - at least one must be true</li></ul><ul id="7fa4243f-4889-466f-baf9-27f24f173e44" class="bulleted-list"><li style="list-style-type:disc">a NOT b - negates the original condition</li></ul><h3 id="91710405-dd0b-4f7e-8ca6-fae58a76ffe3" class="">Logic Operators</h3><ul id="cd9b07e0-c83b-4a7c-aec8-9310f497b8ee" class="bulleted-list"><li style="list-style-type:disc">Logical and - <code>&amp;&amp;</code><ul id="ab5deb65-8c4e-4dce-a6db-985e53796bdb" class="bulleted-list"><li style="list-style-type:circle">All must be true</li></ul></li></ul><ul id="a13266ee-82a1-47cc-8fc2-d5ae3e3a2130" class="bulleted-list"><li style="list-style-type:disc">Logical or - <code>||</code><ul id="aa26ef89-3b37-4b97-bb60-127cbb1bbe3f" class="bulleted-list"><li style="list-style-type:circle">Any statement can be true</li></ul><ul id="aaaff0b4-dbbd-46f7-92b2-1b262eb0f176" class="bulleted-list"><li style="list-style-type:circle">Continues checking even if false</li></ul></li></ul><h3 id="a68f0760-a2d8-4f09-89c4-736d89bc5438" class="">Precedence rules for arithmetic, logical, and relational operators</h3><table id="09589eb5-efb8-4886-8fc0-d7d8aea4081a" class="simple-table"><thead class="simple-table-header"><tr id="9090e98c-d72f-444a-81d2-6fbf7731b9bd"><th id="Q@Bs" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Operator</th><th id="{|:l" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Description</th><th id="&gt;t&gt;&gt;" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Explanation</th></tr></thead><tbody><tr id="ed3b335d-8871-4a45-80a0-3f43347ca6f7"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>()</code></td><td id="{|:l" class="" style="width:232.66666666666666px">Items within parentheses are evaluated first</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px">In <code>(a * (b + c) - d)</code> the + is first</td></tr><tr id="d929c06b-04f9-4bd6-a122-39ac49405e56"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>!</code></td><td id="{|:l" class="" style="width:232.66666666666666px"><code>!</code> logical not is next</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px"><code>! x || y</code> is evaluated as not x or is y</td></tr><tr id="f17b9707-96ac-4b8a-9edd-3ffafe186909"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>&lt; &lt;= &gt; &gt;=</code></td><td id="{|:l" class="" style="width:232.66666666666666px">Relational Operators</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px"><code>x&lt;2 || x&gt;=10</code> is evaluated x&lt;2 or x≥10</td></tr><tr id="e79fd459-72cc-4dc0-aae2-fcab4effa05d"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>== !=</code></td><td id="{|:l" class="" style="width:232.66666666666666px">Equality and inequality</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px"><code>x == 0 &amp;&amp; x != 10</code> is evaluated as x is 0 and x is not 10 </td></tr><tr id="8839785a-414b-4159-a491-23f6d14c2b5e"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>&amp;&amp;</code></td><td id="{|:l" class="" style="width:232.66666666666666px">Logical AND</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px"><code>x == 5 || y == 10 &amp;&amp; z != 10</code> is evaluated as x = 5 or y = 10 and z ≠ 10</td></tr><tr id="31ce9806-6d25-46ee-a9bc-b9396bfa90f0"><td id="Q@Bs" class="" style="width:232.66666666666666px"><code>||</code></td><td id="{|:l" class="" style="width:232.66666666666666px">Logical OR</td><td id="&gt;t&gt;&gt;" class="" style="width:232.66666666666666px"><code>||</code> has the lowest precidence of the listed arithmetic, logical, and relational operators</td></tr></tbody></table><h3 id="002ca0b0-1725-43a9-a8d8-775fa80a2154" class="">Composition</h3><ul id="83af96e3-80e2-47c8-8d43-b5369bff6e86" class="bulleted-list"><li style="list-style-type:disc">A composition in Java between two objects associated with each other exists when there is a strong relationship between one class and another</li></ul><ul id="14fdefbd-4f95-44e8-8142-dd4dd4045152" class="bulleted-list"><li style="list-style-type:disc">For example, one class has an attribute that is an object of another class</li></ul><p id="c1d6ab03-c20c-4ba3-b9ba-08cf7aa8aab5" class="">
+</p><hr id="e12182f4-dfde-4ff0-aa64-0d526b5a2c70"/><h2 id="5899de30-2304-4e1b-ac22-09183b24f3f3" class="">9/20/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/05_02_Classes.pdf">Classes, Objects, and Composition</a></h2><h3 id="fb53147b-ec72-47c2-a49b-66817eb8d811" class="">Class</h3><ul id="543b2d1d-e3d5-4220-8f0c-b7f195ffaeba" class="bulleted-list"><li style="list-style-type:disc">Describes a set of objects with the same behavior<ul id="6fda8b0b-a15a-4c2d-be73-449d2f2e440e" class="bulleted-list"><li style="list-style-type:circle">String class describes the behavior of all strings<ul id="4301bf97-fdf5-4640-b233-956463b87bb6" class="bulleted-list"><li style="list-style-type:square">Specifies how a string stores its characters</li></ul><ul id="808e0d05-030b-47bc-a846-7916d021b177" class="bulleted-list"><li style="list-style-type:square">Which methods can be used (behaviors)</li></ul><ul id="ffded6b5-1a69-42ef-90f5-64506963fb4a" class="bulleted-list"><li style="list-style-type:square">How the methods are implemented</li></ul></li></ul></li></ul><ul id="3dcf1916-b316-422d-9199-389e60661559" class="bulleted-list"><li style="list-style-type:disc">Overloaded Constructors<ul id="1ffe8ac7-d94c-4301-ba73-c17738d9d0da" class="bulleted-list"><li style="list-style-type:circle">Same name of method with different parameters</li></ul><ul id="859045b7-de6c-440a-b07a-cafd3a67613a" class="bulleted-list"><li style="list-style-type:circle">Each method has a different implementation</li></ul></li></ul><ul id="2e139ed9-60dc-4182-8084-8571b9f003ba" class="bulleted-list"><li style="list-style-type:disc">We can have overload of any method, constructors or any other method defined in the class</li></ul><ul id="60b6d067-4890-41a5-aebb-6c306fba6dd1" class="bulleted-list"><li style="list-style-type:disc">Has a public interface<ul id="a1fceb0e-7aee-46d8-95e7-c35b8154f5de" class="bulleted-list"><li style="list-style-type:circle">Collection of methods through which the objects of the class can be manipulated</li></ul></li></ul><ul id="77ead7b1-4155-4e41-b385-72e4bdada826" class="bulleted-list"><li style="list-style-type:disc">Stores its data in instance variables (attributes)<ul id="78635caa-06fa-47e3-bbee-ed57130d8c5b" class="bulleted-list"><li style="list-style-type:circle">Data required for executing the methods</li></ul><ul id="f0902faf-a5e4-4c44-ac81-480a34f70790" class="bulleted-list"><li style="list-style-type:circle">Instance variables should always be private</li></ul><ul id="6b3effc5-97e8-4443-99d7-ac916372c2a5" class="bulleted-list"><li style="list-style-type:circle">Private instance variables can only be accessed by the method of its own class</li></ul></li></ul><h3 id="d193c6ec-b000-4b07-8a3e-fb518290ce7a" class="">Classes have variables / data</h3><ul id="204985ff-127c-475d-a6a9-90c7b1d0768f" class="bulleted-list"><li style="list-style-type:disc">Classes can have any number of variables and types in them <ul id="7f14150f-74af-45e7-8289-4a5a90e3f419" class="bulleted-list"><li style="list-style-type:circle">Variables in the class code block<ul id="a7af9e56-fa7a-4d4c-9d4e-b9b0770ef9cd" class="bulleted-list"><li style="list-style-type:square">May be static<ul id="cde8d719-754b-4092-8d3b-d63a02afb389" class="bulleted-list"><li style="list-style-type:disc">Variable value is shared across all classes / the program</li></ul></li></ul><ul id="fd227fc0-fcb6-433f-8b27-20bf27b3a764" class="bulleted-list"><li style="list-style-type:square">May be instance (not-static)<ul id="67a5b72c-6a65-44c5-90b9-8a5fe6cda1ca" class="bulleted-list"><li style="list-style-type:disc">Variable value is only set for every instance / object uniquely<ul id="6401fb77-573c-4675-8d7e-efeeab7a951f" class="bulleted-list"><li style="list-style-type:circle">Length of the String only makes sense for unique strings!</li></ul></li></ul></li></ul></li></ul><ul id="e058cbaf-87b5-4ff0-9a00-3adf4c4fb35e" class="bulleted-list"><li style="list-style-type:circle">Variables may have scope<ul id="ec8e7eab-cbc4-42fa-9550-c010f52fb4cd" class="bulleted-list"><li style="list-style-type:square">Who has access to read them</li></ul><ul id="6a60fb67-7bfc-443c-9efa-4e07dc799225" class="bulleted-list"><li style="list-style-type:square"><code>public</code> - everyone in every class can read and write to them</li></ul><ul id="a4ab890e-9c36-4049-9b0c-0cb17d1857f6" class="bulleted-list"><li style="list-style-type:square"><code>private</code> - only methods in that class can read and write to them (suggested)</li></ul></li></ul><ul id="61224c75-5bec-4c55-944b-ec19309b2154" class="bulleted-list"><li style="list-style-type:circle">Can be changed or cant be changed<ul id="252268a7-923f-4e4e-8bdd-2a01b77f3212" class="bulleted-list"><li style="list-style-type:square"><code>final</code> - defines a constant, immutable, value </li></ul></li></ul></li></ul><p id="88a464f1-007c-4b03-b72d-e2325d33142a" class="">
+</p><hr id="f4a2fd30-d75d-4812-9c4b-f6fc966fe597"/><h2 id="8b16cfe9-85cf-429c-891f-5077bcd51171" class="">9/22/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/05_03_Wrapperclass.pdf">Datatypes and Wrapper Class</a></h2><h3 id="19699710-9926-4d68-80b3-5fdb2f0d757b" class="">Binary</h3><ul id="c626a007-99ca-472b-871f-8c2da2b20b4f" class="bulleted-list"><li style="list-style-type:disc">Binary - Two state system<ul id="16a72c17-f746-40bb-9661-2ce7786122cb" class="bulleted-list"><li style="list-style-type:circle">1 for on</li></ul><ul id="fbba23ca-6147-4206-8455-d0c1533eb455" class="bulleted-list"><li style="list-style-type:circle">0 for off</li></ul></li></ul><ul id="2029cdac-9aef-4af4-a6b3-4137eae67cbe" class="bulleted-list"><li style="list-style-type:disc">Bit<ul id="7115c4e2-4919-48ef-9cc9-27a270097471" class="bulleted-list"><li style="list-style-type:circle">Each 0 and 1 is called a bit</li></ul><ul id="48296816-bf1e-4020-a190-aca581b6ac92" class="bulleted-list"><li style="list-style-type:circle">8 bits is called a byte</li></ul><ul id="a5272267-b60d-4f4e-867f-beadd2b65043" class="bulleted-list"><li style="list-style-type:circle">Contains 255 states (128+64+32+16+8+4+2+1)</li></ul></li></ul><ul id="e20843fe-f21d-43ab-922d-decea3df4aab" class="bulleted-list"><li style="list-style-type:disc">Every bit is an exponential of 2<ul id="d83926e2-0044-49cf-aa57-9ea974ee669f" class="bulleted-list"><li style="list-style-type:circle">1 + 2 + 4 + 8, etc</li></ul></li></ul><h3 id="bba06dbe-37b6-41f8-a265-1cedbe4e4cfc" class="">Numeric Data Types</h3><table id="f6604fd7-d5d2-4381-9bfa-149c7537a63f" class="simple-table"><thead class="simple-table-header"><tr id="18813f9a-ad9d-4dc3-85e3-cc56a40144d2"><th id="mv:f" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Declaration</th><th id="C`NV" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Size</th><th id="F&gt;g}" class="simple-table-header-color simple-table-header" style="width:232.66666666666666px">Supported Number Range</th></tr></thead><tbody><tr id="59301d2d-3c7d-4044-8eb5-b166bfecca85"><td id="mv:f" class="" style="width:232.66666666666666px"><code>byte myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">8 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px">-128 to 127</td></tr><tr id="92bcb401-8a1a-40b2-927c-ad30a1c97574"><td id="mv:f" class="" style="width:232.66666666666666px"><code>short myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">16 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px">-32,768 to 32,767</td></tr><tr id="bf656250-2378-4f4f-be23-f67ef050a432"><td id="mv:f" class="" style="width:232.66666666666666px"><code>int myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">32 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px">-2,147,483,648 to 2,147,483,647</td></tr><tr id="c6b24b9b-d846-48c9-9c53-c08b84787e7d"><td id="mv:f" class="" style="width:232.66666666666666px"><code>long myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">64 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px">-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td></tr><tr id="99abf8b9-2b50-49d6-8789-f5a2382ba333"><td id="mv:f" class="" style="width:232.66666666666666px"><code>float myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">32 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>3.4</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>38</mn></msup></mrow><annotation encoding="application/x-tex">-3.4\times10^{38}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">3.4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">38</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> to <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.4</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>38</mn></msup></mrow><annotation encoding="application/x-tex">3.4\times10^{38}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3.4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">38</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></td></tr><tr id="056cbd1f-018f-475e-a285-57c146a4c809"><td id="mv:f" class="" style="width:232.66666666666666px"><code>double myVar</code></td><td id="C`NV" class="" style="width:232.66666666666666px">64 bits</td><td id="F&gt;g}" class="" style="width:232.66666666666666px"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1.7</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>308</mn></msup></mrow><annotation encoding="application/x-tex">-1.7\times10^{308}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1.7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">308</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> to <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.7</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>308</mn></msup></mrow><annotation encoding="application/x-tex">1.7\times10^{308}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1.7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">308</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></td></tr></tbody></table><h3 id="33817cd4-86d1-432c-9ef0-aaf20ff050c1" class="">Wrapper Class</h3><ul id="a9ba98c1-2ec7-4c56-bde2-77943af934c6" class="bulleted-list"><li style="list-style-type:disc">A <em>primitive</em> type variable directly sotre sthe data for that variable type, such as int, double, or char</li></ul><ul id="b631a4d3-cd0d-43e2-a348-e26f31106306" class="bulleted-list"><li style="list-style-type:disc">A <em>reference</em> type variable can refer to an instance of a class, also known as an object</li></ul><ul id="0ef37440-eabc-4b54-85c2-f95f4bad47d7" class="bulleted-list"><li style="list-style-type:disc"><em>Wrapper classes</em> that are built-in reference types that augment the primitive types</li></ul><table id="5633e46d-aab2-431a-bf26-b6f7a0de08d4" class="simple-table"><thead class="simple-table-header"><tr id="3e55491a-db2e-44fd-b983-921e5056267f"><th id="K_Fa" class="simple-table-header-color simple-table-header" style="width:349px">Reference Type</th><th id="]r=\" class="simple-table-header-color simple-table-header" style="width:349px">Associated primitive type</th></tr></thead><tbody><tr id="d98c6b39-3dcb-4cb6-9505-c5336b92b582"><td id="K_Fa" class="" style="width:349px">Character</td><td id="]r=\" class="" style="width:349px"><code>char</code></td></tr><tr id="c56e6c54-15b3-4631-95f6-ae05eef42a96"><td id="K_Fa" class="" style="width:349px">Integer</td><td id="]r=\" class="" style="width:349px"><code>int</code></td></tr><tr id="79d958ad-cdae-4be1-b0de-f4a83e0dd9d8"><td id="K_Fa" class="" style="width:349px">Double </td><td id="]r=\" class="" style="width:349px"><code>double</code></td></tr><tr id="ecceda46-1d21-4227-b4b8-db59d84871a0"><td id="K_Fa" class="" style="width:349px">Boolean</td><td id="]r=\" class="" style="width:349px"><code>boolean</code></td></tr><tr id="e5f92007-05ea-46be-8893-35a82fe9f8e1"><td id="K_Fa" class="" style="width:349px">Long</td><td id="]r=\" class="" style="width:349px"><code>long</code></td></tr></tbody></table><h3 id="c6fc98ed-2063-4289-86d5-635e7a47c5d2" class="">Wrapper Class Conventions</h3><ul id="9faacc6d-74b3-453a-b89e-1f1f959046de" class="bulleted-list"><li style="list-style-type:disc">Autoboxing - automatic conversion of primitive types to the corresponding wrapper classes</li></ul><ul id="f7981179-db2c-4086-b4b8-152d4d98729d" class="bulleted-list"><li style="list-style-type:disc">Unboxing - automatic conversion of wrapper class objects to the corresponding primitive types</li></ul><h3 id="da43f79b-3535-4b11-a3f6-f0a8432902f2" class="">Character Wrapper Class</h3><ul id="1172e96b-4ac8-4dad-b1c7-8db9da909e9e" class="bulleted-list"><li style="list-style-type:disc">char is a primitive<ul id="92e7f2fa-b7ca-4b33-a2f2-704aad645521" class="bulleted-list"><li style="list-style-type:circle">No methods by itself</li></ul></li></ul><ul id="868d2845-f96e-430e-b6a0-e53f3ae484b9" class="bulleted-list"><li style="list-style-type:disc">Character “wrapper” exists<ul id="3f2e149f-084d-4f79-874d-7d0d486b9610" class="bulleted-list"><li style="list-style-type:circle">Methods (mostly static) to help you learn about char</li></ul></li></ul><ul id="50695738-a13b-4e9c-bd4f-df39d3e0f405" class="bulleted-list"><li style="list-style-type:disc">Common and useful methods<ul id="f4e94a38-433e-4061-99be-ab0c841ef51b" class="bulleted-list"><li style="list-style-type:circle">Character.isDigit(char)</li></ul><ul id="0df1a758-5eee-40b7-a93c-2da342532738" class="bulleted-list"><li style="list-style-type:circle">Character.isWhitespace(char)</li></ul><ul id="7e6f938f-f068-41ca-bd1f-12803d818bd1" class="bulleted-list"><li style="list-style-type:circle">Character.isLetter(char)</li></ul></li></ul><ul id="8ddbc038-2c49-4344-b1cb-481b6cd3787a" class="bulleted-list"><li style="list-style-type:disc">These are often paired with String charAt, and loops</li></ul><p id="3109cf52-45c4-413d-b89b-34413c67cc1c" class="">
+</p><hr id="9d8ca568-4040-40cd-87b7-f1a721d26b2f"/><h2 id="993e5e37-46ee-49da-ae8b-30e99736b7fb" class="">9/25/24 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/06_01_ArrayList.pdf">ArrayList</a></h2><h3 id="f87f0f45-9b2a-43a5-8d08-34f32bac68b7" class="">Collections</h3><ul id="7efe69c3-bb0f-4abf-ac11-781ef41c0ad2" class="bulleted-list"><li style="list-style-type:disc">A collection represents a group of objects, known as its elements</li></ul><ul id="73730c19-30af-444d-90d5-80f4272147a9" class="bulleted-list"><li style="list-style-type:disc">Some collections allow duplicate elements and others do not. Some are ordered and others unordered</li></ul><ul id="1476f56e-b749-440a-827a-1ef9e2cc0890" class="bulleted-list"><li style="list-style-type:disc">It is an interface<ul id="e9b00523-b0ac-4e76-a056-1d54b427f00d" class="bulleted-list"><li style="list-style-type:circle">We will learn more later</li></ul><ul id="5537585c-a447-4db3-ae06-71c717553604" class="bulleted-list"><li style="list-style-type:circle">For now, an interface specifies a set of behaviors (methods) that other classes needs to implement</li></ul></li></ul><h3 id="d94cbe6b-f93d-47c4-9d44-07f4077b4b0f" class="">List</h3><ul id="a05c8142-e6a8-4ad3-8c7c-404daad6a50d" class="bulleted-list"><li style="list-style-type:disc">An ordered collection (also know as a sequence)</li></ul><ul id="17df5ba4-b495-4965-869d-251829150a08" class="bulleted-list"><li style="list-style-type:disc">The user of this interface has precise control over where in the list each element is inserted</li></ul><ul id="7b5a469a-7461-4117-bcfe-b365ea76e56c" class="bulleted-list"><li style="list-style-type:disc">The user can access elements by their integer index (position in the list), and search for elements in the list</li></ul><h3 id="839903e6-aa53-4678-a23b-13ec809364be" class="">ArrayList</h3><ul id="e878c603-d28b-4998-a441-6b36fb4db021" class="bulleted-list"><li style="list-style-type:disc">Resizable-array implementation of the List interface</li></ul><ul id="d9284b34-73f8-42ba-9122-0ddab186a6e2" class="bulleted-list"><li style="list-style-type:disc">Each ArrayList instance has a capacity </li></ul><ul id="961fa423-efbe-427d-a693-f62ffdfbcaaa" class="bulleted-list"><li style="list-style-type:disc">Capacity is the size of the array used to store the elements</li></ul><ul id="9c735e7c-9660-492e-b1d8-d40f6556ca35" class="bulleted-list"><li style="list-style-type:disc">When an instance of an ArrayList reaches its capacity, the instance grown automatically (resize), by doubling its initial capacity</li></ul><pre id="48231e68-fd6d-4a25-8421-70b81392eb3b" class="code"><code>ArrayList&lt;Box&gt;  boxList = new ArrayList&lt;&gt;();
+
+boxList.add(new Box(10,3,4));
+boxList.add(new Box(5,5,5));
+boxList.add(new Box(10,3,13));
+
+for (Box box : boxList) {
+	System.out.println(box);
+}
+
+System.out.println(boxList.size());
+
+boxList.remove(2);</code></pre><h3 id="58391e78-aec6-4a68-b55d-3fe183dc2628" class="">Wrapper Classes</h3><ul id="29c8e249-d1f0-40d3-9d85-68737a29a8a7" class="bulleted-list"><li style="list-style-type:disc">ArrayList<ul id="6a838295-e2a5-482c-83fb-d1aeb35251bd" class="bulleted-list"><li style="list-style-type:circle">Only stores objects</li></ul></li></ul><ul id="d6959ead-a795-465b-b6d2-1768ef91df72" class="bulleted-list"><li style="list-style-type:disc">Wrapper classes to the rescue<ul id="6112aefa-4b37-4a2a-9046-20b0d765341b" class="bulleted-list"><li style="list-style-type:circle">int has integer</li></ul><ul id="7248d303-6dce-4f36-8b1d-07c1f22c2288" class="bulleted-list"><li style="list-style-type:circle">double has Double</li></ul><ul id="c38e5118-89d4-4827-ba7b-18907d53ca18" class="bulleted-list"><li style="list-style-type:circle">boolean has Boolean</li></ul><ul id="be114dff-cc99-4a7f-ba05-db3ba3309b1d" class="bulleted-list"><li style="list-style-type:circle">char has Character</li></ul><ul id="03e0b01f-2d5a-4d70-9df5-d67162667a21" class="bulleted-list"><li style="list-style-type:circle">etc.</li></ul></li></ul><ul id="b5bddeac-4e7a-4f2c-a0ce-a09658116d62" class="bulleted-list"><li style="list-style-type:disc">Boxing and Unboxing<ul id="01c487ff-70d6-409a-8f9a-31f994b5ca72" class="bulleted-list"><li style="list-style-type:circle">Allows automatic conversion between wrapper and primitive</li></ul><ul id="06ef1954-c968-41fa-8a96-1529297b0fba" class="bulleted-list"><li style="list-style-type:circle">Integer myInt = 10;<ul id="e78aec2b-c9b2-4873-a460-badccc90927d" class="bulleted-list"><li style="list-style-type:square">Same as Integer myInt = new Integer(10);</li></ul></li></ul></li></ul><h3 id="9499187e-5c6d-4b4f-8856-51f0d8da199a" class="">ArrayList: Some methods</h3><ul id="b4682e9b-59c6-4f46-9895-f0470e325a7d" class="bulleted-list"><li style="list-style-type:disc"><code>.get(int)</code> - returns the item at the set index</li></ul><ul id="eae9e64e-41bd-4231-b814-300891f5b5a3" class="bulleted-list"><li style="list-style-type:disc"><code>.remove(int)</code> - removes the item at the set index (giving the item if needed)</li></ul><ul id="bb6c5550-41db-41bb-b8c6-c1c2d018401e" class="bulleted-list"><li style="list-style-type:disc"><code>.set(int, value)</code> - replaces an item at an already existing index</li></ul><ul id="ee80d1e3-d804-4bc1-b4cf-31f80f40425e" class="bulleted-list"><li style="list-style-type:disc"><code>.add(value)</code> - adds an item to the end of the list</li></ul><ul id="48785a3d-a6db-4b10-8b98-1a0d53631a15" class="bulleted-list"><li style="list-style-type:disc"><code>.add(int, value)</code> - inserts an item at a set location</li></ul><ul id="398dce9a-6b99-4aa5-8814-4873698ada12" class="bulleted-list"><li style="list-style-type:disc"><code>.size()</code> - returns the total number of elements in the list <ul id="8e48c416-5199-49d1-bf77-0086690dedcc" class="bulleted-list"><li style="list-style-type:circle">Yes this one is confused with <code>.length()</code> all the time</li></ul></li></ul><h3 id="03622b92-6c07-4de5-b783-aa3c26dd4364" class="">For Each</h3><p id="c5d96afe-1814-4484-8bf6-097a68e70052" class=""><code>for(Type element: list)</code></p><ul id="2c7829f9-966a-4b03-8e5a-3d1c409d5c74" class="bulleted-list"><li style="list-style-type:disc">Get all the elements that are in a list</li></ul><pre id="d898b19c-5d39-416e-8e01-b39f11eda662" class="code"><code>ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+list.add(10);
+list.add(2);
+list.add(-1);
+
+for (Integer element: list)
+	System.out.println(element)</code></pre><p id="a8546a6b-533f-4471-ac2f-d08dce1e7b1b" class="">
+</p><hr id="94b255a7-cff4-4567-b85d-dcfb6960f592"/><h2 id="f3029a94-1e20-40c3-b589-cf7e2ba15f56" class="">9/27/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/06_02_MoreMethods.pdf">More Methods</a></h2><h3 id="e20c1b22-3a9b-49e0-96b8-d46691452d57" class="">Method Overloading</h3><ul id="250b0d67-8d97-4d97-9d4c-cfa3e05d175a" class="bulleted-list"><li style="list-style-type:disc">You can have the same method name, different parameters</li></ul><ul id="fe79f344-dbe7-4378-87d9-b93fb2223da3" class="bulleted-list"><li style="list-style-type:disc">Java will match the parameters on which method is called</li></ul><ul id="a482b76d-2ae0-44f2-8d5f-195711d760b8" class="bulleted-list"><li style="list-style-type:disc">Best practice<ul id="5e51fb82-e6aa-4272-99a9-0f72a2470090" class="bulleted-list"><li style="list-style-type:circle">Methods with less parameters call the most detailed version</li></ul><ul id="f125dff2-3479-4c97-8c59-fa6b20644ee0" class="bulleted-list"><li style="list-style-type:circle">This let’s you have default values for methods</li></ul><ul id="51bc95ca-fcd5-4717-bcbe-2a9d1e6ae21f" class="bulleted-list"><li style="list-style-type:circle">Makes it so you only have one place to update!</li></ul></li></ul><h3 id="9f3419fa-d1f5-4464-b380-111fe5222e44" class="">Reminder: Keep it simple</h3><ul id="f74e53d8-d736-4058-aa25-a1fa575a0c0b" class="bulleted-list"><li style="list-style-type:disc">Methods are the conquer: divide → conquer → glue<ul id="002ba50a-23cf-484e-99c0-48cf24c448f2" class="bulleted-list"><li style="list-style-type:circle">Which means, the smaller the problem to solve, the better</li></ul><ul id="54125417-8367-4132-ae32-73d7f53b994b" class="bulleted-list"><li style="list-style-type:circle">Keep what you do in a method simple</li></ul><ul id="ca6b790d-aec6-4f66-96f3-dd65c297845a" class="bulleted-list"><li style="list-style-type:circle">If you write 20 lines, you probably have written too much</li></ul><ul id="f2161bfe-7eec-497d-8f6d-d9d9e0d3734c" class="bulleted-list"><li style="list-style-type:circle">If you cut and paste you need a method</li></ul></li></ul><ul id="8c077439-b552-40f6-8081-0c82ff41c434" class="bulleted-list"><li style="list-style-type:disc">Turn problems into questions<ul id="eecde1f9-61e0-41f1-9fee-626ea6761cde" class="bulleted-list"><li style="list-style-type:circle">Whaat is your quest?</li></ul><ul id="2d73e2b8-9eef-45b3-8841-405fcb2da555" class="bulleted-list"><li style="list-style-type:circle">What do you know?</li></ul><ul id="22b4f146-e1c7-43f0-9a1a-fd2aec4559a3" class="bulleted-list"><li style="list-style-type:circle">What do you need?</li></ul></li></ul><h3 id="9b9e1fea-f46c-4c08-b0eb-a04e336caff6" class="">Debugging</h3><ul id="b69a1256-c4da-40a8-a7c0-35cee8a9cb9b" class="bulleted-list"><li style="list-style-type:disc">println/print <ul id="9e1a79ad-039a-4e85-b65b-eae38b08ba7b" class="bulleted-list"><li style="list-style-type:circle">one of the best tools to debug code </li></ul><ul id="759354d6-9493-4787-bf13-9ce492f91381" class="bulleted-list"><li style="list-style-type:circle">Not sure how something works, toss it in a print and see what happens</li></ul><ul id="ef1ccf43-e34d-4008-8f9d-66be6da26673" class="bulleted-list"><li style="list-style-type:circle">Unsure where the error is? put it in print lines to narrow down the issue</li></ul><ul id="5300974a-37ad-4226-a7ed-ec671b6d2ca9" class="bulleted-list"><li style="list-style-type:circle">Suggestion use “TESTING” with all the statements, so you don’t accidentally leave it in</li></ul></li></ul><ul id="4b20e522-a08d-4ea3-a9f6-003ca95c896f" class="bulleted-list"><li style="list-style-type:disc">Debuggers<ul id="a14f92ca-3604-4e2e-b993-be8b7e9fc3c8" class="bulleted-list"><li style="list-style-type:circle">IDEs come with debuggers that help you trace code. Future thing to remember</li></ul></li></ul><ul id="362d03bb-2411-4ebf-bd6a-2c03bae7c437" class="bulleted-list"><li style="list-style-type:disc">assert<ul id="65fdedb9-c1fb-4b69-b2b4-54e1dafb7ed5" class="bulleted-list"><li style="list-style-type:circle">New command</li></ul><ul id="a37ed941-7ce8-4bf8-93ce-ca3ca8a2f012" class="bulleted-list"><li style="list-style-type:circle">Good for testing completed methods (unit testing)</li></ul><ul id="bce6cace-3a6e-45bc-b0fc-4c877aa07c59" class="bulleted-list"><li style="list-style-type:circle">Operator that prints an error message and exists the program if the provided test expression evaluates to false</li></ul><ul id="c47b8da0-bbf3-47dc-b54d-3fd56721bf2d" class="bulleted-list"><li style="list-style-type:circle">What you have been doing in labs is perfect for it<p id="968c5133-45b2-40e2-a12c-73d7a5e82551" class=""><code>assert testExpres : detailedMessage;</code></p></li></ul></li></ul><p id="7ac507b4-1c4f-4715-8305-6c267897c97b" class="">
+</p><hr id="870c104f-0853-44bc-a708-247b0b2fc039"/><h2 id="6250e607-57d5-4f56-8165-85a3b3ff6428" class="">9/29/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/06_03_StringManipulation.pdf">String Manipulation</a></h2><h3 id="720bc580-1cf5-4980-8c52-137d1249ecf4" class="">Strings</h3><ul id="ae232d02-9397-49ce-9547-6d46f1e3f50d" class="bulleted-list"><li style="list-style-type:disc">A string is a collection of ordered characters<ul id="1222f9b4-3b05-41ef-89a9-6665a8f05a05" class="bulleted-list"><li style="list-style-type:circle">It has data</li></ul><ul id="eacea83a-3648-4dd9-a93b-7b83f659314e" class="bulleted-list"><li style="list-style-type:circle">It has Functionality (methods)</li></ul><ul id="d0241495-b2e3-4a6d-a779-b740eaf5d89a" class="bulleted-list"><li style="list-style-type:circle">It is also immutable (cant be directly modified)<ul id="45a85c6e-896a-42c3-81e3-0863117701a3" class="bulleted-list"><li style="list-style-type:square">Every Method that builds a String, returns a copy</li></ul><ul id="eff22d17-56f4-45b4-b7c5-818a8c67deea" class="bulleted-list"><li style="list-style-type:square">Java does this for memory efficiency</li></ul></li></ul></li></ul><ul id="f495aa07-ca0d-44cf-a972-7ec0a64da92c" class="bulleted-list"><li style="list-style-type:disc">Example<ul id="6bbeb72d-e50c-49c0-9b61-e68d6d4dff46" class="bulleted-list"><li style="list-style-type:circle"><code>String mascot = &quot;Cam&quot;;</code></li></ul></li></ul><h3 id="c40c5d1c-abbc-47d4-af84-c4169cedc175" class="">Common String Methods</h3><ul id="7068ed29-56ba-440e-9ea8-cd651b6b5b51" class="bulleted-list"><li style="list-style-type:disc"><code>charAt(int)</code> - gives us the character at location</li></ul><ul id="696cd5d1-68bb-445c-a280-822d067beb43" class="bulleted-list"><li style="list-style-type:disc"><code>indexOf(char)</code> - gives us the location of character (what you just wrote)</li></ul><ul id="f2d7f876-b404-4812-bff0-bfa2b740be53" class="bulleted-list"><li style="list-style-type:disc"><code>indexOf(String)</code> - overloaded option gives the location of the start of the string that matches</li></ul><ul id="a80a8db7-60e8-43b3-92ab-732c38d386d9" class="bulleted-list"><li style="list-style-type:disc"><code>lastIndexOf(char)</code> - gives us the index starting at the end working down (also has a String version)</li></ul><ul id="d750dcfd-9981-42ef-8612-920380beaacc" class="bulleted-list"><li style="list-style-type:disc"><code>subString(int start, in end)</code> - returns the substring from start - including start to end, excluding end (inclusive / exclusive)</li></ul><ul id="74026fcf-1b16-45cb-9700-dcd130e92adf" class="bulleted-list"><li style="list-style-type:disc"><code>toLowerCase()</code> - returns the lowercase version of the string</li></ul><ul id="aafe3022-37ef-4924-9079-0b6fbbe1cb54" class="bulleted-list"><li style="list-style-type:disc"><code>toUpperCase()</code> - returns the uppercase version of the String </li></ul><p id="78e0c58c-f31f-4f50-ba42-678370bd9d1e" class="">
+</p><hr id="ea136a48-e258-4ccf-91f4-b1712f83a24d"/><h2 id="d2b8833c-9b66-4bc8-820a-c047ca6a3d02" class="">10/2/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/07_01_FileInput.pdf">Reading Files</a></h2><h3 id="7d8a0b89-9a64-4565-81b0-6b9dd2f7dc6d" class="">I/O Streams</h3><ul id="164edd88-80f8-47d8-b0c0-dbb815af6064" class="bulleted-list"><li style="list-style-type:disc">A Stream is a sequence of data</li></ul><ul id="10e4e839-0e1d-4868-b96b-4ac5c44eece5" class="bulleted-list"><li style="list-style-type:disc">A program uses an input stream to read data from a source, one item at a time</li></ul><ul id="07ea3aac-c2dd-4a5b-836d-232ebb5e5679" class="bulleted-list"><li style="list-style-type:disc">A program uses an output stream to write data to a destination, one item at a time</li></ul><h3 id="41dc43e1-5a97-40b2-933c-95ba386d9969" class="">OutputStream</h3><ul id="6e9d1415-875b-45e0-b2f1-e2d39dfc360d" class="bulleted-list"><li style="list-style-type:disc"><code>System.out</code> is a predefined OutputStream object reference that is associated with a system’s standard output, usually a computer screen</li></ul><ul id="584da936-699e-443d-ac87-95e02d9ef10c" class="bulleted-list"><li style="list-style-type:disc">The <code>print()</code> and <code>println()</code> methods are overloaded in order to support the various standard data types</li></ul><h3 id="3d18d2ce-9b35-484c-9e30-63c675a6b6f7" class="">InputStream</h3><ul id="727935b4-1097-4419-ac91-3260796aa5f0" class="bulleted-list"><li style="list-style-type:disc"><a href="http://System.in"><code>System.in</code></a> is an input byte stream</li></ul><ul id="e55cc3d3-7b67-4f0a-86e5-517371031421" class="bulleted-list"><li style="list-style-type:disc">When using an InputStream, a programmer must append the clause <code>throws IOException</code> when using the method read()<ul id="e9805e79-0818-40a7-9ece-b3eed8b730a9" class="bulleted-list"><li style="list-style-type:circle">The <code>throws</code> clause tells the JVM that the corresponding method may exit unexpectedly due to an exception, which is an event that disrupts a program’s execution</li></ul></li></ul><ul id="0f074cc7-4ff1-4203-a611-2061173ead4d" class="bulleted-list"><li style="list-style-type:disc">Instead of reading a byte stream, dealing with IOException, and after it converting the data to a String or other types, we have been using the Wrapper class named Scanner</li></ul><h3 id="150cebde-1c21-4715-9159-2a2f78e69b37" class="">Scanner - Reading from a String</h3><ul id="de9a17a7-d1ac-415f-8222-45a0d769345e" class="bulleted-list"><li style="list-style-type:disc">When we want to read something from the terminal we use<pre id="9c8ec9a7-0b00-46e1-bc9c-3d86c14de750" class="code"><code>Scanner scnr = new Scanner(System.in);</code></pre><ul id="2d0429ba-1cbf-40c9-8667-74b4b98c331a" class="bulleted-list"><li style="list-style-type:circle">The parameter <a href="http://System.in"><code>System.in</code></a> indicates that we are reading from the terminal</li></ul></li></ul><ul id="6ea7f6ca-1eb2-4717-956b-97119c086369" class="bulleted-list"><li style="list-style-type:disc">Sometimes we may want to read something from a String so instead of using <a href="http://System.in">System.in</a> as a parameter we have a String as a parameter</li></ul><h3 id="35bf294f-2f09-4095-8132-935c2375bb13" class="">Scanner - Different Uses</h3><ul id="2dc2cca2-d763-4e03-bad4-79cdd4343975" class="bulleted-list"><li style="list-style-type:disc">We know how to read from terminal</li></ul><ul id="5f1cb830-f882-46b0-b988-d3f88c2c04a4" class="bulleted-list"><li style="list-style-type:disc">We know how to read from String</li></ul><ul id="394c0343-fbd6-4f30-8a20-81c715febd32" class="bulleted-list"><li style="list-style-type:disc">What happens if instead of reading from the terminal or string, we want to read from a file<ul id="a8ac8a63-f9f6-4bc6-b4a8-7935228a4b9f" class="bulleted-list"><li style="list-style-type:circle">We need to use the <code>File</code> class</li></ul><ul id="829df31a-b873-44d8-8188-83220f01e027" class="bulleted-list"><li style="list-style-type:circle">And pass an object of File as a parameter instead of System or a string when constructing Scanner</li></ul><pre id="c58bdebc-eb17-427c-a76d-586aeedd0da4" class="code"><code>Scanner fileIn = new Scanner(new File(filename));</code></pre><p id="9b0aafff-0de5-4b67-bb7e-6ac273c84f88" class="">
+</p></li></ul><hr id="8d51dd15-d841-491d-a2bb-b225ce56596c"/><h2 id="da857e3a-9a5e-4eb7-aafe-b18444d44538" class="">10/6/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/07_02_MoreLoops.pdf">More Loops</a></h2><h3 id="492c01ae-a637-4a35-bc49-81a7281544a8" class="">Incriminator and Decrementor</h3><ul id="72b88107-9114-4403-a008-3d81bf762d07" class="bulleted-list"><li style="list-style-type:disc"><code>++</code> or <code>--</code> BEFORE the variable means<ul id="e254a005-a393-4b27-9bc0-abc9d80ca21e" class="bulleted-list"><li style="list-style-type:circle">Add or subtract by 1 and then use the modified value</li></ul></li></ul><ul id="037a8eb1-fbdb-42ca-b4a4-01043a6e6807" class="bulleted-list"><li style="list-style-type:disc"><code>++</code> or <code>--</code> AFTER the variable means<ul id="8670e052-7629-477d-952f-e24cd5162fd7" class="bulleted-list"><li style="list-style-type:circle">Use the value in the variable, and then add or subtract by one modifying the value</li></ul></li></ul><h3 id="0607768a-1104-4cce-b411-89e7f114b25a" class="">Do While Loop</h3><ul id="e311526f-0954-4cc8-9add-753caf48104d" class="bulleted-list"><li style="list-style-type:disc">A unique loop <ul id="d735c60a-4855-43b2-bbfd-ee773b2919a3" class="bulleted-list"><li style="list-style-type:circle">For and while - both check and then run</li></ul></li></ul><ul id="55e8f12e-5a87-425b-89a9-0147b008cf22" class="bulleted-list"><li style="list-style-type:disc">Do-while<ul id="79d26ff2-ba21-40ea-886b-7c15a618cb24" class="bulleted-list"><li style="list-style-type:circle">Runs block of code and then checks</li></ul><ul id="708f0b67-1fd7-488a-82e2-f1d8c9dcac45" class="bulleted-list"><li style="list-style-type:circle">Guarantees at least one run</li></ul></li></ul><pre id="5d439ce8-7928-477c-a2c6-d83fbcb59744" class="code"><code>do {
+	// some code
+} while (true /* condition */);</code></pre><h3 id="23c63bac-b788-4ce2-ae47-dc20311731e2" class="">Changing loop order: Break / Continue</h3><ul id="3d773df2-a8b6-4378-bfcb-e7d659bdbbf4" class="bulleted-list"><li style="list-style-type:disc"><code>break</code><ul id="e5ffa289-e4c0-4e6c-add9-7f7cc4ef451d" class="bulleted-list"><li style="list-style-type:circle">Allows us to beak out of the loop completely (early exit)</li></ul></li></ul><ul id="dc1b01f3-2dec-4de2-ac75-3cbf7ce8a5b5" class="bulleted-list"><li style="list-style-type:disc"><code>continue</code><ul id="4bf09690-9307-4043-9674-955016f30206" class="bulleted-list"><li style="list-style-type:circle">Allows us to move back to the top of the code block</li></ul><ul id="12cb88c9-dce9-4527-b8e3-460508587486" class="bulleted-list"><li style="list-style-type:circle">with for loop the incriminator is still completed</li></ul></li></ul><p id="ea9c60dd-c134-4398-ae40-3dd8864ba181" class="">
+</p><hr id="16a37760-f276-4c8a-ae3b-a56280470cd7"/><h2 id="5b5fd64b-c234-45a4-b5cf-eac0b7f22306" class="">10/9/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/07_03_Inheritance.pdf">Inheritance</a></h2><ul id="bbaf463e-e646-49b7-bae3-7b81e5d82854" class="bulleted-list"><li style="list-style-type:disc">Is a relationship between a more general class (called <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>superclass</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>) and a more specialized class (called <strong><strong><strong><strong><strong><strong><strong><strong>subclass</strong></strong></strong></strong></strong></strong></strong></strong>)</li></ul><ul id="8ad4c92b-4886-49ae-b320-14764a599d0b" class="bulleted-list"><li style="list-style-type:disc">The subclass inherits data and behavior from the superclass</li></ul><h3 id="45679251-bf3c-46be-9ef2-532287163c6c" class="">Substitution Principle</h3><ul id="ad9d2d80-4a71-4fea-8c8c-82d79064c286" class="bulleted-list"><li style="list-style-type:disc">Substitution principle states that you can always use a subclass object when a superclass object is expected</li></ul><h3 id="9bb8c6a2-5abf-40d4-a19e-c06b1c1b6abc" class="">Inheritance Example</h3><pre id="fb2945ce-dfa0-4573-bc1a-98948ee8b8fb" class="code"><code>public class Question {
+	private String text;
+	private String answer;
+
+	public Question() {
+		// calls the constructor with 2 params
+		this(&quot;&quot;, &quot;&quot;);
+	}
+
+	public Question(String text, String answer) {
+		setText(text);
+		setAnswer(answer);
+	}
+	
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public boolean checkAnwer(String answer) {
+		return (this.answer.equals(answer));
+	}</code></pre><h3 id="b64deb2a-fd1a-412b-8e5c-ad6b69d24294" class="">Inheritance - Makes Java DRY</h3><ul id="85fff811-4bb0-432e-9366-ed9cdf565e50" class="bulleted-list"><li style="list-style-type:disc">Inheritance <ul id="9cf98221-e6e6-4daa-90db-d6715585b76b" class="bulleted-list"><li style="list-style-type:circle">Heart of OOP</li></ul><ul id="253e3d2b-22c7-4b55-ade3-bf8c79f0005c" class="bulleted-list"><li style="list-style-type:circle">Essential to large programs</li></ul><ul id="b8581ac8-bab5-473d-a3ec-f4f624342040" class="bulleted-list"><li style="list-style-type:circle">DRY</li></ul></li></ul><ul id="62934c7b-983f-40bc-9c3a-5d09bacf79e0" class="bulleted-list"><li style="list-style-type:disc">A class can extend another class<ul id="ecac358f-a6b7-4949-a376-0c4add466d15" class="bulleted-list"><li style="list-style-type:circle">By extending<ul id="7a140359-8f02-4de2-aeed-120b5499c62a" class="bulleted-list"><li style="list-style-type:square">Inherit methods and properties</li></ul></li></ul><ul id="46121a28-af34-4344-b31b-921b199bc37c" class="bulleted-list"><li style="list-style-type:circle">override<ul id="b3f773b8-0c45-4dfb-8b63-eb14e038b081" class="bulleted-list"><li style="list-style-type:square">Allows you to change methods for children</li></ul></li></ul></li></ul><h3 id="614baff8-01b7-44c5-a673-8bccd50731c2" class="">Object Class</h3><ul id="6921fe97-6b4f-4290-9855-9831218dc074" class="bulleted-list"><li style="list-style-type:disc">All classes in java extend Object</li></ul><ul id="7587fb2e-299d-45bb-a7dc-4bf8b4708900" class="bulleted-list"><li style="list-style-type:disc">Object is a type / class<ul id="85592be1-5727-4051-9263-8c7ae6c73d7d" class="bulleted-list"><li style="list-style-type:circle">Includes common methods</li></ul><ul id="2940f03f-897c-49d5-beb3-1345c3241fff" class="bulleted-list"><li style="list-style-type:circle"><code>toString()</code><ul id="65d77a7e-9315-4ea6-a4dd-26ebba8f3846" class="bulleted-list"><li style="list-style-type:square">Returns String of the object</li></ul><ul id="0ababca8-50b5-4fc5-9828-cfac76b30d28" class="bulleted-list"><li style="list-style-type:square">by default memory location (not useful) - should override</li></ul><ul id="b6a5c2f7-1579-4455-8bb3-82bf9c55a040" class="bulleted-list"><li style="list-style-type:square"><code>System.out.println()</code> - calls toString()</li></ul><ul id="e52f8e34-4e62-4bfa-9a04-a4be9847edaa" class="bulleted-list"><li style="list-style-type:square">String concatenation calls toString()</li></ul></li></ul><ul id="53fdf614-7196-44ed-8751-571df7302187" class="bulleted-list"><li style="list-style-type:circle"><code>equals(Object)</code><ul id="907650dc-78d7-4d9b-9132-bacc37ca3b9f" class="bulleted-list"><li style="list-style-type:square">Compares memory locations</li></ul><ul id="3020bcae-d6f2-4d02-b225-b2ced89a385c" class="bulleted-list"><li style="list-style-type:square">should usually override</li></ul></li></ul></li></ul><h3 id="fd239d27-6763-4670-a4d7-d1b83802b498" class="">Revisiting Scope</h3><ul id="3ab6927b-f1c0-47fd-8e60-07ae17f69df5" class="bulleted-list"><li style="list-style-type:disc">public <ul id="44c069a0-b141-4d9f-a505-bd89f92c21b6" class="bulleted-list"><li style="list-style-type:circle">Everyone has access</li></ul></li></ul><ul id="e4085f9b-5f61-4e40-8f9e-2f3349076991" class="bulleted-list"><li style="list-style-type:disc">private<ul id="5a89d9b8-b6f4-4d8c-a0ce-c3fdfb708b04" class="bulleted-list"><li style="list-style-type:circle">Only the class has access</li></ul><ul id="c203574d-8bcb-4e4a-912f-14d079d3c0c0" class="bulleted-list"><li style="list-style-type:circle">This means child classes - can’t access private</li></ul></li></ul><ul id="2ee2fc5a-ffdb-45c6-bff8-f097ac2893bf" class="bulleted-list"><li style="list-style-type:disc">protected<ul id="d157a333-ccc2-4f42-9c42-2a38cddf1551" class="bulleted-list"><li style="list-style-type:circle">child class has access only</li></ul></li></ul><ul id="dfee9717-750d-4d4a-8cc1-d232533e67f3" class="bulleted-list"><li style="list-style-type:disc">&lt;blank/omitted&gt;<ul id="e383f88c-ed23-428e-9c64-1db8867793e9" class="bulleted-list"><li style="list-style-type:circle">package and children have access</li></ul></li></ul><h3 id="102e4c74-f794-412d-af22-53aada3c8d64" class="">Inheritance is Polymorphic</h3><ul id="53814919-6543-46a2-b2d8-7b0603d24697" class="bulleted-list"><li style="list-style-type:disc">Substitution principle states that you can always use a subclass object when a superclass object is expected</li></ul><ul id="5954a2eb-1977-4b4b-9e89-c18a17b615c7" class="bulleted-list"><li style="list-style-type:disc">Children may appear to be their parents!</li></ul><ul id="01f0192d-c85b-4fcd-afe4-ac63a959d083" class="bulleted-list"><li style="list-style-type:disc">Define a data structure of the parent type and you can store parent and children types</li></ul><ul id="ed18ad6e-2d45-4f2f-b073-8137599f5131" class="bulleted-list"><li style="list-style-type:disc">Calls correct class</li></ul><p id="2841bc8e-02b9-4ee1-a920-5b632b1aa926" class="">
+</p><hr id="0fb23865-df53-408c-a2d9-11d82e0554c3"/><h2 id="919230dc-ed83-4488-99d0-4d3af800c93b" class=""></h2></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

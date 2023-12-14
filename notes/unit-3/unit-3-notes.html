@@ -1,0 +1,773 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 3 Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="da655dd9-fd01-4637-b5a8-9a080c6cff70" class="page sans"><header><h1 class="page-title">Unit 3 Notes</h1><p class="page-description"></p></header><div class="page-body"><hr id="7b216cf0-873d-408f-895e-3da550ae5382"/><h2 id="cc6ae28b-94ad-4f40-b3e2-c98a68462f90" class="">10/16/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/09_01_OSandFileWriting.pdf">Operating Systems and File Output</a></h2><h3 id="6aafa5c7-cfd1-4a21-8404-afd3c616e002" class="">Operating Systems</h3><ul id="1c868410-b921-43c7-ad0d-0465de414c95" class="bulleted-list"><li style="list-style-type:disc">You use them daily<ul id="93b4e57c-6ab3-440d-a474-29d962ae0493" class="bulleted-list"><li style="list-style-type:circle">Most common os in the world - Android<ul id="314be9aa-2471-4807-8293-71514fa7dc4a" class="bulleted-list"><li style="list-style-type:square">Written in Java - Kotlin</li></ul></li></ul></li></ul><ul id="d193a90e-bb28-46e1-836d-5abf2ead3948" class="bulleted-list"><li style="list-style-type:disc">The control<ul id="78b95b16-3482-4db6-969b-942473ec750e" class="bulleted-list"><li style="list-style-type:circle">Resources</li></ul><ul id="0b71b9c7-743f-46b7-b97c-b71aecdd66e0" class="bulleted-list"><li style="list-style-type:circle">Hardware interaction</li></ul><ul id="430bbc43-6159-4f35-927a-0e7407fa915d" class="bulleted-list"><li style="list-style-type:circle">Devices</li></ul><ul id="4c9f157f-8f7e-450a-a62b-323c7a08f769" class="bulleted-list"><li style="list-style-type:circle">Running applications, memory, etc</li></ul><ul id="9cca46c1-1229-4cb3-8390-9988ad450214" class="bulleted-list"><li style="list-style-type:circle">Files</li></ul></li></ul><h3 id="71fc738f-0dfd-4ea0-b74a-96ff09c8ddd6" class="">File Systems</h3><ul id="8b85205b-d83a-482e-a459-88e0a207d395" class="bulleted-list"><li style="list-style-type:disc">Program that helps manage files and other programs</li></ul><ul id="2314b6cb-69e3-49a9-9011-0d58d0c40f2f" class="bulleted-list"><li style="list-style-type:disc">Directory Structure<ul id="903acd55-b508-4d3d-af79-5769b6318db9" class="bulleted-list"><li style="list-style-type:circle">Relative<ul id="5107a99f-6ba4-4867-ba5e-a56b4aad7a9c" class="bulleted-list"><li style="list-style-type:square">Based on current location</li></ul></li></ul><ul id="3e891f5e-4f43-4258-b0a6-2f781cff3184" class="bulleted-list"><li style="list-style-type:circle">Absolute<ul id="6ab21eac-4352-46d4-b020-fa5d30baea7b" class="bulleted-list"><li style="list-style-type:square">Based on Root, the top of the hierarchy</li></ul></li></ul></li></ul><ul id="873563f6-3249-481e-8147-aeb6e4ab196f" class="bulleted-list"><li style="list-style-type:disc">Key “shortcuts”<ul id="b4d75267-f054-4c96-97a6-eedc692104ec" class="bulleted-list"><li style="list-style-type:circle"><code>.</code> (yes dot) - current directory</li></ul><ul id="9cddcdeb-8790-4500-b233-f2f003b0a839" class="bulleted-list"><li style="list-style-type:circle"><code>..</code> (directory above current)</li></ul></li></ul><ul id="4652bb5f-6218-4e67-8962-8c03e0e674a9" class="bulleted-list"><li style="list-style-type:disc">Examples<ul id="d9a3bfce-64a0-4552-9fe9-7d589f464f6b" class="bulleted-list"><li style="list-style-type:circle">Windows: drive letter with C:/, D:/, etc</li></ul><ul id="96aeca19-c82e-4b3c-998c-357534ecbcbe" class="bulleted-list"><li style="list-style-type:circle">Linux/MacOS/Unix: just a “/”</li></ul></li></ul><h3 id="c017a67a-7714-4303-b9bb-f3543d2ac413" class="">File Object in java</h3><ul id="ff5d74c4-45fc-4a95-8014-60e3c3994850" class="bulleted-list"><li style="list-style-type:disc">Has a number of useful methods when dealing with files and directories</li></ul><ul id="524dd253-6c16-4789-9bfb-4765f4ca98f6" class="bulleted-list"><li style="list-style-type:disc"><code>File myFile = new File(&quot;filename&quot;);</code><ul id="9a2edb25-1b69-4a66-bb24-47d942380a8b" class="bulleted-list"><li style="list-style-type:circle">Creates or reads a file based on the path + filename given</li></ul><ul id="1805d430-b63b-4984-a082-28d993fca880" class="bulleted-list"><li style="list-style-type:circle">Actually connects to the location which is a stream of bytes</li></ul></li></ul><h3 id="9d479b57-f505-4670-81b6-79cdc8208b23" class="">FileOutputStream Object in Java</h3><ul id="0a27ba8c-82ab-48b6-9dfa-30c0d4419d44" class="bulleted-list"><li style="list-style-type:disc">Has a number of useful methods when dealing with writing binary data to a file</li></ul><ul id="6a2d7bdd-01e1-4275-88f5-73159c46ef67" class="bulleted-list"><li style="list-style-type:disc"><code>FIleOutputStream myFile = new FileOutputStream(&quot;output.txt&quot;);</code><ul id="3426e9e2-2c78-4e62-a483-6faab49d5a63" class="bulleted-list"><li style="list-style-type:circle">Creates a file in the same directory as the java executable. Relative</li></ul></li></ul><h3 id="d7e69562-55e2-4e4e-a8c9-8797d278f134" class="">Print Writer</h3><ul id="06041781-dbcd-4a35-a075-d1a4358557b8" class="bulleted-list"><li style="list-style-type:disc"><code>PrintWriter</code> is an object designed to write text to a File Stream</li></ul><ul id="2bce992a-cb53-4e15-9e79-7f744c005172" class="bulleted-list"><li style="list-style-type:disc">What are streams?<ul id="ef799c0d-7b5d-4e01-8099-635d47dd31c7" class="bulleted-list"><li style="list-style-type:circle"><code>System.out</code> - Stream to the console</li></ul><ul id="662e14ad-fd98-4c36-9358-02a2815c142c" class="bulleted-list"><li style="list-style-type:circle"><code>System.in</code> - Stream from the console</li></ul><ul id="d57724a3-12f6-4d83-94e3-7a7d65bdf13d" class="bulleted-list"><li style="list-style-type:circle"><code>System.err</code> - stream to the error log (often console)</li></ul><ul id="98f7c9c2-adc4-4b48-acb9-b1d044750f34" class="bulleted-list"><li style="list-style-type:circle">File is also a stream</li></ul><ul id="2f69b8ff-356d-4701-a28b-d57cb82f131d" class="bulleted-list"><li style="list-style-type:circle">FileOutputStream is also a stream</li></ul></li></ul><ul id="5c0aabc9-a837-4ce2-833b-9cee752909c4" class="bulleted-list"><li style="list-style-type:disc">PrintWriter uses the same interface as System.out but directs the stream<pre id="3789345f-cdc6-458d-b897-5af590d30ca5" class="code"><code>PrintWriter writer = new PrintWriter(new FileOutputStream(&quot;notes.txt&quot;);
+writer.printn(&quot;#these are my notes&quot;);</code></pre></li></ul><p id="191af639-a025-46c3-8560-9750446cded2" class="">
+</p><hr id="bacb344e-08bb-406f-80b5-1cab954e9f7b"/><h2 id="9e33d093-c669-47cd-ae34-dbe556342586" class="">10/18/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/09_02_Exceptions.pdf">Java Exceptions</a></h2><h3 id="e5f2114b-b6dc-4e85-aa82-e050587bebb5" class="">What are Exceptions</h3><ul id="65ed603c-36b3-4956-a310-964c4dc1005b" class="bulleted-list"><li style="list-style-type:disc">Classes / Objects<ul id="771dfc72-b3b5-4f3a-bfd0-56e77e9a6802" class="bulleted-list"><li style="list-style-type:circle">They contain information about the error that is happening</li></ul></li></ul><ul id="e012a210-08aa-466d-8034-a93d29701900" class="bulleted-list"><li style="list-style-type:disc">What about try / catch and throws?<ul id="6cfff837-d641-48d0-a63f-a2b6ce32bee7" class="bulleted-list"><li style="list-style-type:circle">Those are commands that use those objects</li></ul></li></ul><ul id="b2a7310f-460a-4d4b-bdf5-3c48eb5947d6" class="bulleted-list"><li style="list-style-type:disc"><code>try / catch</code><ul id="b60ffbd5-60c8-4433-a858-ce7ec9b6971a" class="bulleted-list"><li style="list-style-type:circle"><code>try {}</code> - Says “try this block of code”</li></ul><ul id="b50def23-f736-40b9-8762-fa627e1dd9d9" class="bulleted-list"><li style="list-style-type:circle"><code>catch (Exception x) {}</code> - Run this block of code if there is an error</li></ul><ul id="d5580c7c-4791-42de-9119-5a96bc723f48" class="bulleted-list"><li style="list-style-type:circle"><code>finally {}</code> - always run this block of code error or not (often can be omitted, won’t be used much in this class)</li></ul></li></ul><h3 id="c4d96b2e-8a9b-4d22-8367-188fffd66357" class="">Java Exception Hierarchy</h3><ul id="1cb6fc06-b12f-4986-987f-6ede2ebaf1ff" class="bulleted-list"><li style="list-style-type:disc">Error class is used to indicate a more serious problem in the architecture and should not be handled in the application code.</li></ul><ul id="cf961a5a-0d51-4409-a555-2a23442f18cf" class="bulleted-list"><li style="list-style-type:disc">Exception class is used for exception conditions that the application may need to handle.</li></ul><ul id="72e61486-ff2b-469d-89a9-afa2e99fafe6" class="bulleted-list"><li style="list-style-type:disc">Exceptions are further subdivided into checked (compile-time) and unchecked (run-time) exceptions</li></ul><ul id="44ab7c5c-d73f-406d-b968-75b42c6aba3f" class="bulleted-list"><li style="list-style-type:disc">Exceptions that can occur at compile time are called checked exceptions since they need to be explicitly checked and handled in codde<ul id="f00c7d73-2a45-4f34-9d39-452aa67300e4" class="bulleted-list"><li style="list-style-type:circle">All classes with the exception of Error and RuntimeException are checked</li></ul></li></ul><ul id="e8f08637-3600-44d8-9ca2-deb58ba6a4ba" class="bulleted-list"><li style="list-style-type:disc">Unchecked exceptions can be thrown “at any time” (i.e. run-time). Therefore, methods don’t have to explicitly catch or throw unchecked exceptions<ul id="281e1930-40cd-4404-808a-7c16eeeb37da" class="bulleted-list"><li style="list-style-type:circle">RuntimeException</li></ul></li></ul><h3 id="965ca3eb-9ca4-43eb-aa2c-37fd9d2f6441" class="">Controlling Exceptions</h3><ul id="fdc34d1e-e42b-4aa1-80aa-0023fc866bbc" class="bulleted-list"><li style="list-style-type:disc">We can’t control every possible error situation</li></ul><ul id="92875df4-1991-4beb-a8a5-92e11755ae66" class="bulleted-list"><li style="list-style-type:disc">For example<ul id="f294288d-81ce-4af1-be10-44488a5fd718" class="bulleted-list"><li style="list-style-type:circle">What happens if the file is not there?</li></ul><ul id="26b2622f-5b66-40b8-8ec1-56877441a36a" class="bulleted-list"><li style="list-style-type:circle">What if you don’t have permission to read it?</li></ul><ul id="5900b7bb-d5ef-4aba-89ea-fd16c9376708" class="bulleted-list"><li style="list-style-type:circle">Not just files<ul id="6d4d724f-f7b3-46ce-b83c-6ca17747e7e8" class="bulleted-list"><li style="list-style-type:square">What about network connections?</li></ul><ul id="c60bf009-3b8a-4597-8c39-0b4189e75cd1" class="bulleted-list"><li style="list-style-type:square">What if printers aren’t there?</li></ul></li></ul></li></ul><ul id="80ae9ba7-4b1b-456c-8d16-faa26979827b" class="bulleted-list"><li style="list-style-type:disc">Exception handling<ul id="81f25f71-36da-421b-8c4f-af90b5102c90" class="bulleted-list"><li style="list-style-type:circle">try catch</li></ul></li></ul><h3 id="f5527db9-7b6a-4578-983f-cf941afa61e4" class="">Try - Catch</h3><ul id="4a2e4287-347b-4b78-84ad-ac552936088c" class="bulleted-list"><li style="list-style-type:disc"><code>try</code><ul id="027cc707-363f-4804-9fd8-e9c87c46ebd5" class="bulleted-list"><li style="list-style-type:circle">Try a block of code</li></ul><ul id="931b9f4a-6985-4e64-96d3-9cd1bdf1ebe2" class="bulleted-list"><li style="list-style-type:circle">if it runs properly, great!</li></ul></li></ul><ul id="df73a9ea-02de-4f53-8922-19312c970e37" class="bulleted-list"><li style="list-style-type:disc"><code>catch</code><ul id="d3ebc738-9519-4b2d-b08d-68da7cb0e4b3" class="bulleted-list"><li style="list-style-type:circle">An exception happened!</li></ul><ul id="1d0378d9-0efd-4d27-a7fc-5659a7e11fa0" class="bulleted-list"><li style="list-style-type:circle">run the catch block of code</li></ul></li></ul><ul id="46f705fb-b33e-4e45-af0d-f101d0c948af" class="bulleted-list"><li style="list-style-type:disc"><code>throws</code> <ul id="21307918-9cae-42c1-9d82-975ef3e65b76" class="bulleted-list"><li style="list-style-type:circle">Allows you to throw the exception</li></ul><ul id="4184691f-c568-44a9-967c-b485c2f189f4" class="bulleted-list"><li style="list-style-type:circle">requires someone else to handle it</li></ul></li></ul><ul id="a2bb4311-8e1b-485e-a270-61bad334e483" class="bulleted-list"><li style="list-style-type:disc"><code>Exception</code><ul id="63d72670-84e6-443a-a517-8353d86e85ed" class="bulleted-list"><li style="list-style-type:circle">An object/class we use for errors</li></ul><ul id="aa60ffb3-6f9f-4a26-8c87-0d06f7e66161" class="bulleted-list"><li style="list-style-type:circle">You can write your own<ul id="45d76523-9fb7-4fae-856c-0799805a80f2" class="bulleted-list"><li style="list-style-type:square">or use build-in cases</li></ul></li></ul><ul id="b852a722-b2da-46a5-ad15-60be5b4794a1" class="bulleted-list"><li style="list-style-type:circle">Checked (compile time) or Unchecked (run time)<ul id="3dc04a44-f8cb-4aa2-925c-47b7e451b0e1" class="bulleted-list"><li style="list-style-type:square">Checked requires try / catch</li></ul></li></ul></li></ul><h3 id="b31c8bfc-60b4-4c8b-b3ea-3fd2bf9d4c3e" class="">Advanced: Creating your own exception</h3><ul id="57a5b5b5-62bd-49b5-9a8b-d6901c469531" class="bulleted-list"><li style="list-style-type:disc">You can create and throw your own exceptions (often called “raise” in other languages)</li></ul><ul id="5b5d8aaf-2706-4c06-ba57-50196040be62" class="bulleted-list"><li style="list-style-type:disc">In Java, you have to extend the Exception class to do that<ul id="2a8b2c17-af64-496f-878a-a85202ecdf21" class="bulleted-list"><li style="list-style-type:circle">Ensures certain methods are implemented for try / catch / throw / throws</li></ul></li></ul><ul id="d2ee7b3a-7c88-4410-88a8-5c380c6f26d1" class="bulleted-list"><li style="list-style-type:disc">Won’t use it much in this class but still worth knowing</li></ul><ul id="bf7c0a14-2a5d-4acf-b458-f7aec7bf47ea" class="bulleted-list"><li style="list-style-type:disc">Especially if you are developing an SDK or API</li></ul><p id="c500a2eb-301c-4940-8000-d704201a006b" class="">
+</p><hr id="71d9d977-f802-4022-9704-12a4b6dded96"/><h2 id="bf6d265a-e867-4fa6-a11a-cf5a51383d50" class="">10/20/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/09_03_MoreClasses.pdf">More Classes</a></h2><h3 id="7f6c96f5-4f72-457a-92ce-ce6a872f13bf" class="">Static x Instance Variables</h3><ul id="fde6b089-b0ab-4ca7-bb61-6eae57ff343c" class="bulleted-list"><li style="list-style-type:disc">Static<ul id="1be6953a-4636-42cf-b2d5-db91fda1b1e2" class="bulleted-list"><li style="list-style-type:circle">Belongs to the class</li></ul><ul id="51f55729-0676-4ff8-90bc-7f214d99fb6a" class="bulleted-list"><li style="list-style-type:circle">How do you access a public static variable outside of the class?<ul id="daf46b72-5a47-48d4-bb95-49fffebd9fac" class="bulleted-list"><li style="list-style-type:square">ClassName.staticVaraibleName</li></ul></li></ul><ul id="5bf12145-f22a-4041-84c0-7d07f74185ae" class="bulleted-list"><li style="list-style-type:circle">Example<ul id="6b04872d-185e-495e-97f2-ed2abd51c77c" class="bulleted-list"><li style="list-style-type:square"><code>Cake.IS_GOOD</code></li></ul></li></ul></li></ul><ul id="a87021e6-da9b-470c-ab47-e15f2d638556" class="bulleted-list"><li style="list-style-type:disc">Instance<ul id="facbca8a-8518-4055-8a34-ef72636c18fa" class="bulleted-list"><li style="list-style-type:circle">Belongs to the object</li></ul><ul id="fd531705-39b3-4385-8390-0901f8c64c2b" class="bulleted-list"><li style="list-style-type:circle">How do you access a private instance variable?<ul id="77d32165-6684-41af-b763-94c8c481d833" class="bulleted-list"><li style="list-style-type:square">You will need to have a get method for each variable that you want to have access from other class</li></ul><ul id="bbc1a73d-5315-43f4-8852-9dac85c1af31" class="bulleted-list"><li style="list-style-type:square">ObjectName.getNameVariable()</li></ul></li></ul><ul id="a754ec10-c3e9-4276-af52-3f512de9d8d1" class="bulleted-list"><li style="list-style-type:circle">Example<ul id="5fa70e49-4f58-4b83-9de4-2315b107eb4a" class="bulleted-list"><li style="list-style-type:square"><code>Cake.getName()</code></li></ul></li></ul></li></ul><h3 id="333487e4-2791-4af8-bc43-39c54e200215" class="">Static Methods</h3><ul id="86882584-3563-4739-adf1-3d2a0f7287c5" class="bulleted-list"><li style="list-style-type:disc">Instance methods<ul id="28954992-9cb8-45db-8d40-19fd7d4803d9" class="bulleted-list"><li style="list-style-type:circle">Methods that need class information</li></ul></li></ul><ul id="f5403b5e-2a75-4926-9989-6fe4951ad962" class="bulleted-list"><li style="list-style-type:disc">Static method<ul id="0c581371-47c6-47bd-b560-b97d7c185741" class="bulleted-list"><li style="list-style-type:circle">Methods that are “self-contained”</li></ul><ul id="04de6422-cb08-40e7-98ba-b05f167d83bb" class="bulleted-list"><li style="list-style-type:circle">Matches the concept of a class but is not unique to the object</li></ul><ul id="57fb13cc-3682-4e30-a39b-7e84c7fa5a2f" class="bulleted-list"><li style="list-style-type:circle">Static may not call instance methods without building an object<ul id="cd91fc19-922a-4ab2-b964-db9f95be4341" class="bulleted-list"><li style="list-style-type:square">But instance can call static</li></ul></li></ul></li></ul><h3 id="eedfce54-2eef-4750-a381-a1c22ba0aa4a" class="">Overloaded Constructors</h3><ul id="4899ba2d-2c95-4a25-8f61-1961dd720432" class="bulleted-list"><li style="list-style-type:disc">Just like methods<ul id="b631f4d4-2b83-4a36-990e-807aeeebb603" class="bulleted-list"><li style="list-style-type:circle">constructors can be overloaded</li></ul></li></ul><ul id="e97f5c6b-9fcb-4186-9348-f87bbbc1a865" class="bulleted-list"><li style="list-style-type:disc">Standard practice<ul id="827841bd-1432-4420-b39c-cd6663bf33f7" class="bulleted-list"><li style="list-style-type:circle">call the most specific constructor with default values</li></ul><ul id="655e5b01-efd2-4b66-a369-c16f4badc2ed" class="bulleted-list"><li style="list-style-type:circle"><code>this()</code> is used to call the constructor</li></ul><ul id="d7a1b2a2-78ab-4ae2-b79e-ed24db70c10f" class="bulleted-list"><li style="list-style-type:circle">must be the first line of the constructor</li></ul><ul id="a3c3e0b7-f6fb-4297-a4c5-cf824148c059" class="bulleted-list"><li style="list-style-type:circle">keep it dry</li></ul></li></ul><ul id="d7ef9eca-eeb9-418f-a7f6-e1092c488b74" class="bulleted-list"><li style="list-style-type:disc">When you write a constructor with parameters the default one is not supported anymore</li></ul><ul id="cc092930-e2a0-4f00-93a2-acb7e6624641" class="bulleted-list"><li style="list-style-type:disc">Really ask yourself <ul id="f67625ce-314e-424e-ab8e-4e8dca85129b" class="bulleted-list"><li style="list-style-type:circle">What do you need</li></ul><ul id="cc1813a8-efb8-4cdc-b712-79eaff9115e7" class="bulleted-list"><li style="list-style-type:circle">where do you get it</li></ul></li></ul><h3 id="aaeed66b-86e9-445a-b2b7-c475699dde87" class="">Packages</h3><ul id="89caa9a4-a74e-4909-9cf0-e4ae2aabc22e" class="bulleted-list"><li style="list-style-type:disc">Is a grouping of related types, classes, interfaces, and sub-packages</li></ul><ul id="84cb7620-3c26-4b1a-8790-483763808721" class="bulleted-list"><li style="list-style-type:disc">Use “import” to add those packages to your program</li></ul><ul id="8b56c4ff-a37b-4fad-9962-3582d8b478cd" class="bulleted-list"><li style="list-style-type:disc"><code>java.lang</code> is automatically imported into all Java programs</li></ul><ul id="65369373-54fc-4866-bae6-119513d4ac3b" class="bulleted-list"><li style="list-style-type:disc"><code>import java.io.File;</code> vs <code>import java.io.*;</code></li></ul><h3 id="93b8f57e-0413-411f-bd97-3ac894fdcc6c" class="">Unit Testing</h3><ul id="0f69c9f2-2f93-40e2-ae7e-c61f728c20d0" class="bulleted-list"><li style="list-style-type:disc">A program whose job is to thoroughly test another program (or portion) via a series of input/output checks known as test case]</li></ul><p id="0dd8b080-3990-4f5b-b4d2-12cfaa30876e" class="">
+</p><hr id="697da293-294b-4a56-9edd-cda659747193"/><h2 id="a4b1ab98-3e12-4d6e-934e-8ce173309005" class="">10/23/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/10_01_02PolymorphismAndMoreBranching.pdf">Polymorphism &amp; More Branching</a></h2><h3 id="8663375c-30b1-44dd-880c-b0171d7c4b32" class="">Composition</h3><ul id="c8bfda01-b959-4f45-8571-bc218c258236" class="bulleted-list"><li style="list-style-type:disc">Has-a relationship</li></ul><pre id="a64245d1-262c-433a-858e-300694352573" class="code"><code>public class ChildInfo {
+	public String firstName;
+	public String birthDate;
+	public String schoolName;
+
+	...
+}
+
+public class MotherInfo {
+	public string firstName;
+	public string birthDate;
+	public string spouseName;
+	public ArrayList&lt;ChildInfo&gt; childrenData;
+	...
+}</code></pre><h3 id="779b5172-70d2-49ca-a35b-83fcdeb5c38b" class="">Inheritance</h3><ul id="5d2aeee0-d044-417b-86a9-20fe76dd575f" class="bulleted-list"><li style="list-style-type:disc">Is-a relationship</li></ul><pre id="ed789310-ecfa-4817-b04f-876403fadc24" class="code"><code>public class PersonInfo {
+	public String firstName;
+	public String birthDate;
+	...
+}
+
+public class ChidInfo extends PersonInfo {
+	public String schoolName;
+	...
+}
+
+public class MotherInfo extends PersonInfo {
+	public String spouseName;
+	public ArrayList&lt;ChildInfo&gt; childrenData;
+	...
+}</code></pre><h3 id="12f2b71a-1e68-44dc-a36f-c8f53a839b95" class="">Polymorphism</h3><ul id="a0679ac0-80dd-4297-a7c6-00c946ddf512" class="bulleted-list"><li style="list-style-type:disc">Refers to determining which program behavior is executed depending on data types</li></ul><ul id="d7653d3b-3767-4736-9e37-0deaff1c71fb" class="bulleted-list"><li style="list-style-type:disc">Polymorphism of methods - methods overloading<ul id="5e7af5bd-129f-4776-891b-be542bba118d" class="bulleted-list"><li style="list-style-type:circle">compile-time polymorphism</li></ul><ul id="2e14e9be-f36a-46a5-9b5f-82d88c2399ea" class="bulleted-list"><li style="list-style-type:circle">compiler determines which of several identically-named methods to call based on the method’s arguments</li></ul></li></ul><ul id="c61d0638-f35a-4b5c-bf57-803fa45194c5" class="bulleted-list"><li style="list-style-type:disc">Polymorphism of variables - involves derived classes (inheritance)<ul id="2012e278-6745-488f-951a-e240bb724b2c" class="bulleted-list"><li style="list-style-type:circle">runtime poly</li></ul><ul id="1af079a4-c0c5-4b6d-b0be-a68480ffe8a2" class="bulleted-list"><li style="list-style-type:circle">compiler cannot make the determination but instead the determination is made while the program is running</li></ul></li></ul><h3 id="3e289aaf-2d99-4a9c-a9e8-58f3b176a542" class="">Polymorphism of variable</h3><ul id="9a477849-c016-4eeb-9d00-dd7e0e20a081" class="bulleted-list"><li style="list-style-type:disc">Substitution principle - you can always use a subclass object when a superclass is expected</li></ul><ul id="335d42b8-332e-49dc-b108-a03006f4e663" class="bulleted-list"><li style="list-style-type:disc">Super class variable can store super class types and sub class types as well</li></ul><ul id="70d9aa4a-ae1e-4f19-8218-e250d05df4f3" class="bulleted-list"><li style="list-style-type:disc">Sub class variable can only store sub class types</li></ul><h3 id="cd5d3398-c43c-48c7-bd21-2d952f044f98" class="">ArrayList of Objects</h3><ul id="44af6339-0255-4c8d-8e87-c15d97675d43" class="bulleted-list"><li style="list-style-type:disc">Store a collection of objects of various class types</li></ul><h3 id="89ab471e-ae92-408b-aba4-a384f30c18bf" class="">instanceof</h3><ul id="696878e3-2b96-4b60-b448-c684119a3056" class="bulleted-list"><li style="list-style-type:disc">Used to determine the type of an object</li></ul><pre id="0d2da8af-1f12-4d71-ab37-a32791720d7e" class="code"><code>public static void printArrayListV2(ArrayList&lt;Object&gt; objList) {
+	int i;
+	for (i=0; i&lt;objList.size();i++) {
+		Object obj = objList.get(i);
+		if (obj instanceof String) {
+			// do something
+		}
+	}
+}</code></pre><h3 id="670884a8-e658-4850-b0c6-10b271eb10c2" class="">Conditional Statements vs. Ternary Statements</h3><ul id="a5c6ae9b-9dc3-427f-93b2-4448b96d543b" class="bulleted-list"><li style="list-style-type:disc">Conditional - if else else if</li></ul><pre id="a98e96a5-71a7-4806-9699-dee2a6eb98a4" class="code"><code>if (true) {
+	// do something
+} else {
+	// do something else
+}</code></pre><ul id="e0a09406-b03e-4d46-b7d9-fb724099e29f" class="bulleted-list"><li style="list-style-type:disc">Ternary ? :</li></ul><pre id="a50bfb76-a86f-479c-92ef-abf822d39fe7" class="code"><code>String time = 10 &gt; 5 ? &quot;Hello&quot; : &quot;Goodbye&quot;;
+// results in time = &quot;Hello&quot;</code></pre><h3 id="365750a3-1927-4577-b3ad-2ee5f12dd62c" class="">Switch Statements</h3><ul id="a510277a-8f6c-49d5-afa8-72ada518c440" class="bulleted-list"><li style="list-style-type:disc">switches<ul id="83ddf8f1-ebc4-4241-96bb-b77905f57430" class="bulleted-list"><li style="list-style-type:circle">a condition that checks each “case” for using ==</li></ul><ul id="2c260b5c-12cb-4545-bb1a-b4d812514de6" class="bulleted-list"><li style="list-style-type:circle">concise way to compare against a group of options</li></ul></li></ul><ul id="fabdacc0-a2d2-4e8b-830a-ae1f05b3c424" class="bulleted-list"><li style="list-style-type:disc"><code>case</code><ul id="dbbff509-50c1-46d6-86e7-45888525fbe3" class="bulleted-list"><li style="list-style-type:circle">the cases to ==</li></ul></li></ul><ul id="cabd5f06-ce99-4e9f-9fe4-52178d2efd6f" class="bulleted-list"><li style="list-style-type:disc"><code>break</code><ul id="e611bea7-4307-4895-a2bf-fe962993d254" class="bulleted-list"><li style="list-style-type:circle">keeps executing code until break is called</li></ul></li></ul><pre id="eb9a013e-81f4-4eac-9a38-212ac2b3b07d" class="code"><code>switch (primitive or String) {
+	case &lt;value&gt;:
+		// do something
+	case &lt;value&gt;:
+		break
+	default: // else
+}</code></pre><h3 id="73649965-8633-4984-a3e6-ec1da1c0b1d6" class="">Enumerations</h3><ul id="9f3a844d-a437-479b-9326-3ccf461aff61" class="bulleted-list"><li style="list-style-type:disc">Declares a name for a new type and possible values for that type</li></ul><ul id="7fc2699d-a70f-4425-a852-6d50ff10d95c" class="bulleted-list"><li style="list-style-type:disc">Methods can use them and return them!</li></ul><h3 id="4e8f2cbe-0d30-4e42-902f-e953b70ec064" class="">Switch + Enum</h3><ul id="323f94b9-9c2b-42d2-8669-4234e926b4f1" class="bulleted-list"><li style="list-style-type:disc">Switch + enumerations are strong combinations </li></ul><ul id="819c62ad-98ce-4c36-b403-093353a0e881" class="bulleted-list"><li style="list-style-type:disc">Enumeration is part of the case</li></ul><p id="a4a304d3-2b56-4d00-96ae-172d516286aa" class="">
+</p><hr id="d04dc29e-ff0e-4470-9e97-dbdd86825d08"/><h2 id="4049154e-7d64-4a18-aa61-3a65867d0282" class="">10/25/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/10_02_MoreBranching.pdf">More Branching</a></h2><h3 id="9ee759be-d12d-4950-991a-d4355df4a407" class="">Conditional Statements / Ternary Statements</h3><pre id="da5ed27b-4732-476b-b05a-617c36da250a" class="code"><code>if (true) {
+	// do something
+} else {
+	// do something else
+}</code></pre><ul id="15f60d09-1ec2-4bb7-ad64-d0e5a4ccc3ff" class="bulleted-list"><li style="list-style-type:disc">A way to write a simple if / else on one line <p id="7206cf8e-970f-4cf5-a8dd-ac70f2148a6e" class=""><code>condition ? value if true : value if false</code></p><pre id="b7dc7866-c00f-43f5-b88b-6df25722d4d9" class="code"><code>String time = 10 &gt; 5 ? &quot;Hello&quot; : &quot;Goodbye&quot;</code></pre></li></ul><h3 id="33bf8ce7-d1b6-4cc9-b3fc-9bc01e1a5386" class="">Switch Statements</h3><ul id="e0ef9db2-5dd2-491d-b997-d274224c3a27" class="bulleted-list"><li style="list-style-type:disc">Switches<ul id="c00f82df-4b0c-4f2c-abfd-aa64cc23a4ae" class="bulleted-list"><li style="list-style-type:circle">A condition that checks each “case” for using == </li></ul><ul id="3dc3d430-1878-40b7-8b14-8f96863e8703" class="bulleted-list"><li style="list-style-type:circle">A concise way to compare against group of options</li></ul></li></ul><ul id="b0bc89b3-006b-495e-a305-80929ccbe131" class="bulleted-list"><li style="list-style-type:disc">Case<ul id="adab8a41-c1d2-4529-ae75-306c00189a2c" class="bulleted-list"><li style="list-style-type:circle">the cases to ==</li></ul></li></ul><ul id="092c1be9-0fb8-4bed-95e9-1d3b78e2c954" class="bulleted-list"><li style="list-style-type:disc">Break<ul id="145835de-2329-487b-8f52-8caab21b9420" class="bulleted-list"><li style="list-style-type:circle">Keeps executing code - until break is called </li></ul></li></ul><p id="663a6e7e-6ed7-4aa7-a988-c55aa9757cce" class="">
+</p><hr id="ae1b8cd5-5cfe-4e8b-88b5-b64dd6c80a49"/><h2 id="822fd3cb-3647-4509-b7c6-7248582a358e" class="">10/27/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/10_03_Arrays.pdf">Arrays</a></h2><h3 id="b8fc807a-af07-4b09-b99c-37beec65b010" class="">Recalling to the past</h3><ul id="18cab2a1-ef81-4303-8536-321801edb8f7" class="bulleted-list"><li style="list-style-type:disc">For every value you want to store, you need a value</li></ul><ul id="9e54d42b-b09d-48d4-a3b1-8bb17fb17a8c" class="bulleted-list"><li style="list-style-type:disc">What if you want to store 100 values? 10,000 values?<ul id="94599b0a-a122-4452-8dc5-69b6ed4234e2" class="bulleted-list"><li style="list-style-type:circle">Use ArrayLists for storing objects</li></ul><ul id="9a3a0aed-afb5-4eb2-a0e2-ceca7f3bfedb" class="bulleted-list"><li style="list-style-type:circle">But how about primitive types<ul id="17d31667-524e-41f0-870f-c117f158d5a9" class="bulleted-list"><li style="list-style-type:square">Introducing Arrays</li></ul><ul id="de3b07eb-9e71-4b85-9c79-0ac31fb02c76" class="bulleted-list"><li style="list-style-type:square">Reserves memory for storing values, in order from the 0 index</li></ul></li></ul></li></ul><ul id="408e2aec-46c7-4706-9104-c8f03202d726" class="bulleted-list"><li style="list-style-type:disc">Sound familiar - Recall string<ul id="94ab0f47-4b90-49a5-8c77-45bf8b62f249" class="bulleted-list"><li style="list-style-type:circle">the String object contains chars in order</li></ul><ul id="33573aea-9696-4784-925f-4cc9c1ccac47" class="bulleted-list"><li style="list-style-type:circle">It is a character array!</li></ul></li></ul><h3 id="47d1dd4b-7ba1-40cc-af4f-7fc4af647cc5" class="">Arrays are mutable</h3><ul id="ecf100d5-89ef-44d3-bc6c-2d0e0a02f00d" class="bulleted-list"><li style="list-style-type:disc">Elements in the array can be changed / reset!</li></ul><h3 id="4d04e6fc-b823-4c68-ac60-c8ba124f47f5" class="">Arrays can be any type!</h3><ul id="db5d3df4-ed97-48c9-b416-596dde3b5200" class="bulleted-list"><li style="list-style-type:disc"><code>int[] values = new int[100];</code></li></ul><ul id="4e41cf50-2fcf-4aae-bf13-deb0aab44f7c" class="bulleted-list"><li style="list-style-type:disc"><code>String[] names = new String[10];</code></li></ul><ul id="580ffa3b-08fa-4b14-8210-e28bfe2429df" class="bulleted-list"><li style="list-style-type:disc">Format is <ul id="1a8e8ac5-2853-4781-b961-74a92e29c1c6" class="bulleted-list"><li style="list-style-type:circle"><code>TYPE[] name = new Type[size];</code></li></ul></li></ul><h3 id="c43849a0-5985-43cc-9193-f0a2a78beec6" class="">Array Length</h3><ul id="5365933b-7083-4299-8849-73b983f92fad" class="bulleted-list"><li style="list-style-type:disc">Array size allocated to size 10 <ul id="648f9fa2-e25a-4eba-906b-5e826a232578" class="bulleted-list"><li style="list-style-type:circle">0…9 indicies valid</li></ul></li></ul><ul id="578efb8f-ccf8-4c84-aaab-d03dad8db5b6" class="bulleted-list"><li style="list-style-type:disc">rhps[20]<ul id="25cecbb7-c4fe-447b-97b7-1e38b58f1987" class="bulleted-list"><li style="list-style-type:circle">throws <code>IndexOutOfBoundsException</code></li></ul></li></ul><ul id="50f5ec6c-0506-47d3-909b-64ef4effabbb" class="bulleted-list"><li style="list-style-type:disc">How to check for that?<ul id="c3bc83fb-4696-4848-b2a8-113f2be4adad" class="bulleted-list"><li style="list-style-type:circle"><code>array.length</code></li></ul><ul id="b9e5f5c8-7f1a-4905-9272-0e54831289db" class="bulleted-list"><li style="list-style-type:circle">Notice no parenthesis, command, not a method</li></ul></li></ul><h3 id="4bc9c6ad-8d18-4dbc-957d-0dd6cf7eec61" class="">Arrays vs. ArrayLists</h3><ul id="d5667831-00e9-4de0-9615-d5c048f5b51f" class="bulleted-list"><li style="list-style-type:disc">ArrayLists are lists that use Array as the underlying structure</li></ul><ul id="95eaff09-6c5c-465f-9e24-626ed53af8ef" class="bulleted-list"><li style="list-style-type:disc">Arrays are just how you declare a group of objects in order</li></ul><ul id="a9de8db8-b119-407c-9744-1593ff01350f" class="bulleted-list"><li style="list-style-type:disc">ArrayList is an individual object someone wrote</li></ul><h3 id="7c32e34d-f082-49e1-87b7-f6ca0d208ca2" class="">When to use arrays over array lists?</h3><ul id="a721bd27-ecec-4e1a-b8dc-063405279c7d" class="bulleted-list"><li style="list-style-type:disc">When your size is fixed, arrays are much faster to use!</li></ul><ul id="20e520c6-893d-4d5a-bea6-f355917b48ba" class="bulleted-list"><li style="list-style-type:disc">When you need to keep order on sparsely populated datasets (that are often fixed sizes)<ul id="0ecaa367-2ec0-41fc-940b-c954941f4e67" class="bulleted-list"><li style="list-style-type:circle">[value, null, null, null]</li></ul></li></ul><ul id="cdc584a7-692e-4b83-b218-0d3f680f2dc9" class="bulleted-list"><li style="list-style-type:disc">They are used about equally, just depends on what you are doing</li></ul><p id="dca931d1-c9bf-492d-8e7c-84bcdf14df63" class="">
+</p><hr id="fe1fefe6-bc66-42a2-b82f-1f455f2984d7"/><h2 id="fd036b3a-f1c8-49fe-967e-a88ba75d8b5c" class="">10/30/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/11_01_IntrotoRecursion.pdf">Intro to Recursion</a></h2><h2 id="fee15c73-9dcb-4d1c-bfd4-542277496487" class="">Recursion</h2><ul id="6e055a71-6f47-4169-bcde-92e3c74f5a8e" class="bulleted-list"><li style="list-style-type:disc">Simple recursion is a loop<ul id="ccb899de-d433-4fe0-a6f6-a6d21136a2e7" class="bulleted-list"><li style="list-style-type:circle">a Method that calls itself</li></ul></li></ul><ul id="9ce5325f-b654-422a-bdcf-4d7d91c7df56" class="bulleted-list"><li style="list-style-type:disc">How to write it?<ul id="89b0bdb1-e444-41ad-b1cd-36b7f849f578" class="bulleted-list"><li style="list-style-type:circle">Write a base case (condition)</li></ul><ul id="946e43ca-aa32-48a0-906f-9cf53af50e25" class="bulleted-list"><li style="list-style-type:circle">Write a method that calls itself</li></ul></li></ul><ul id="3f2dc078-5be4-40ae-bda4-9c350c41e25f" class="bulleted-list"><li style="list-style-type:disc">Starting with factorial example<pre id="015b8b38-14b0-4ad1-8330-902f20f2cfac" class="code"><code>public static long factorialLoop(int n) {
+	long fact = 1;
+	for (int i = n; i &gt; 1; i--) {
+		fact *= i;
+	}
+	return fact;
+}</code></pre></li></ul><ul id="c4cc8746-2111-47f8-b674-7fb7631046c8" class="bulleted-list"><li style="list-style-type:disc">Building our first recursion method<ul id="4db33595-0971-48ce-b740-c906ada2e235" class="bulleted-list"><li style="list-style-type:circle">Factorial</li></ul><ul id="4bb9e202-cf85-42db-bc4e-6493be2e823b" class="bulleted-list"><li style="list-style-type:circle">0! = 1</li></ul><ul id="e429f46d-626f-4355-8954-ada6b371dbc5" class="bulleted-list"><li style="list-style-type:circle">1! = 1</li></ul><ul id="eaf86e8b-47e9-4655-8b12-00d133fafe76" class="bulleted-list"><li style="list-style-type:circle"><code>n != n*(n-1)*(n-2)*...*2*1</code></li></ul></li></ul><h3 id="f4d7f421-e6fe-4c3e-bff1-25cb5edb52cc" class="">Recursion - String reverse</h3><ul id="dad27e0b-0fd0-4e5f-bdd2-1775ca34c109" class="bulleted-list"><li style="list-style-type:disc">Let’s start with a String reverse method that uses a loop solution to return a reversed string</li></ul><pre id="30c30b18-f2c0-42fd-9740-977231d30a01" class="code"><code>public static String reverseLoop(String str) {
+	String reveresed = &quot;&quot;;
+	for (int i=str.length(); i&gt;-1; i--) {
+		reversed += str.charAt(i);
+	}
+	return reversed;
+}</code></pre><ul id="7dff9c4c-214d-480c-9e3a-7b37edd2a13a" class="bulleted-list"><li style="list-style-type:disc">How to write a recursive version of it<ul id="54ec3234-73f2-4271-be6b-c856bf030907" class="bulleted-list"><li style="list-style-type:circle">Write a base case <code>if (index&lt;0) return &quot;&quot;;</code></li></ul><ul id="0facf732-73cf-40c3-a268-89667afe4081" class="bulleted-list"><li style="list-style-type:circle">Write method that calls itself<ul id="194607ce-0a4e-4283-b30a-9698389c7ec5" class="bulleted-list"><li style="list-style-type:square"><code>return str.charAt(index) + reverseString(str, index-1);</code></li></ul></li></ul></li></ul><h3 id="141de805-9572-4811-a5b5-b6f12e9c8dd2" class="">Real example + sneak peak into inheritance</h3><ul id="c3cc7131-f926-4879-b898-0113ea1e4ea0" class="bulleted-list"><li style="list-style-type:disc">Assume you have the following data structure<ul id="ed1eb450-aa8c-405a-9987-7f4349d952ed" class="bulleted-list"><li style="list-style-type:circle">An array of values, but some values can be other arrays</li></ul></li></ul><ul id="71e76240-46b0-4840-9632-c81bd518bf22" class="bulleted-list"><li style="list-style-type:disc">How do you represent all the different values?</li></ul><ul id="311b977f-d289-4496-8022-d7fcf7208ac6" class="bulleted-list"><li style="list-style-type:disc">Inheritance (and polymorphism)<ul id="535e8725-c78d-411b-b81f-c3d56d0ebfcb" class="bulleted-list"><li style="list-style-type:circle">All objects “inherit” from the class object<ul id="2b137bf0-0e18-4108-8245-2fa53aec1361" class="bulleted-list"><li style="list-style-type:square">Gains the properties of Object</li></ul><ul id="608ed619-de80-46a1-9f69-fb0c0fd823d0" class="bulleted-list"><li style="list-style-type:square">Which means you can store all objects as objects</li></ul><ul id="4017460f-ff8f-48fa-83a4-c46976e4ea0a" class="bulleted-list"><li style="list-style-type:square">But you need to “cast” back to do something useful</li></ul></li></ul></li></ul><ul id="db5b3a1c-a406-45f3-ab9c-0e219e938020" class="bulleted-list"><li style="list-style-type:disc">Now - The real example<ul id="58422ba4-3835-448f-bda4-cd8a6d834a2a" class="bulleted-list"><li style="list-style-type:circle">How can I sum all the values across the structure to the right?<ul id="68ce2b4a-b34d-4bb7-8e4e-f41966a5ed51" class="bulleted-list"><li style="list-style-type:square">Would a loop work?<ul id="63eba020-afec-4ab3-93eb-541abebe1851" class="bulleted-list"><li style="list-style-type:disc">No!</li></ul></li></ul></li></ul><ul id="2818edba-3e17-47ac-a10f-8bc5596df661" class="bulleted-list"><li style="list-style-type:circle">Solution… Recursion!</li></ul></li></ul><pre id="db57cbb1-0ef3-487f-8222-5f028941cf96" class="code"><code>public cass Recursion { 
+	
+	public static int sum(Object[] values) {
+		return sum(values, 0); // overloaded
+	}
+	public static int sum(Object[] values, int current) {
+		if (current &gt;= values.length) reutrn 0; // past the end of array
+		if (values[current] instanceof Object[]) { // another array
+			return sum((Object[])values[current], 0) + sum(values, current+1);
+		}
+		return (Integer)values[current] + sum(values, current + 1); // number plus something
+	}
+	public static void main(String[] args) {
+		Object[] values = new Object[]{1,2,3,
+			new Object[]{4,5, new Object[]{1,1}},
+			10, new Integer[]{2,2}, 1, 10};
+		System.out.println(sum(values));
+	}</code></pre><p id="eb7c747f-40c8-461c-a8c8-40e725b25c73" class="">
+</p><hr id="cc5c465c-063c-4717-a532-3c18b20d8382"/><h2 id="158da09e-0ba7-4d59-8d94-89d9d05fa65a" class="">11/1/23 - <a href="https://github.com/CSU-CompSci-CS163-4/Handouts/blob/main/slides/On-Campus/11_02_AbstractClassesInterface.pdf">Abstract Classes and Interfaces</a></h2><h3 id="728f7b95-970a-4a61-8d6f-5e4627543be4" class="">Inheritance</h3><ul id="ae587578-d258-48da-a6db-37ab33de010d" class="bulleted-list"><li style="list-style-type:disc">Creates an is-a relationship between classes </li></ul><ul id="3319ee7a-1955-4a98-a8c9-5e16ee2516f5" class="bulleted-list"><li style="list-style-type:disc">Allows fully implemented “more generalized” classes as the super classes<ul id="bad95068-ae61-473c-a711-7b324ad8a6e7" class="bulleted-list"><li style="list-style-type:circle">Specialized subclasses as the subclasses inherits instance variables and methods from the super class</li></ul></li></ul><ul id="18451f39-0a62-4772-921e-4e94bb2da556" class="bulleted-list"><li style="list-style-type:disc">Use the key word <code>extends</code><ul id="d270a4bf-2185-4d1a-8584-8e454c6b9a72" class="bulleted-list"><li style="list-style-type:circle">Can only extend / inherit from one immediate parent (but can have “chain” of parents)</li></ul><pre id="05965c88-f98f-4723-9daf-24fd2b61043e" class="code"><code>Circle crcl = new Circle(10, &quot;234,255,123&quot;);
+
+System.out.println(&quot;the color is &quot; + crcl.getColor());</code></pre></li></ul><h3 id="0e2700fc-4294-4e91-8ba1-af93b587a5e3" class="">Polymorphism</h3><ul id="3826326a-7961-4547-9ed7-9906c2f8ad8b" class="bulleted-list"><li style="list-style-type:disc">Allows the subclass to be declared as the super<ul id="0e474811-0b68-433e-a7ab-67b4ab45c8a5" class="bulleted-list"><li style="list-style-type:circle">Actually a subclass can “substitute” in for the super</li></ul></li></ul><ul id="7fed328b-331b-4a8d-a70b-a67b728a6aef" class="bulleted-list"><li style="list-style-type:disc">Extremely useful for things like Arrays and ArrayLists</li></ul><pre id="41b43154-9fba-418b-8f9f-5c8392c75cb8" class="code"><code>Shape[] shapes = new Shape[3] // fixed size
+shapes[0] = crcl;
+shapes[1] = new Rectangle(23, 5, &quot;123,125,255&quot;);
+
+System.out.println(Arrays.toString(shapes));</code></pre><h3 id="a28a71a0-e2fa-47da-b60b-5135f38adbdd" class="">Abstract class</h3><ul id="1bb9e1d9-0952-4bbd-a80f-9a53489f629d" class="bulleted-list"><li style="list-style-type:disc">What if a method you write needs specific information?<ul id="dda9ca77-1b4a-4bcc-ac72-bacfc1a49b03" class="bulleted-list"><li style="list-style-type:circle">Unique to subtypes / children</li></ul><ul id="4b00520b-0c91-4d24-92ba-dba5d74d4ff7" class="bulleted-list"><li style="list-style-type:circle">BUT - the rest of the method is general</li></ul></li></ul><ul id="ed418ec6-e364-40ad-8e27-69220c06c6ac" class="bulleted-list"><li style="list-style-type:disc">Enter Abstract Classes<ul id="4ab12403-622a-406b-aada-f6fa9562f400" class="bulleted-list"><li style="list-style-type:circle">Classes that are not <em>complete</em> by themselves</li></ul><ul id="c70bbf79-f9fe-4cfa-9c38-22dc8bd31ae5" class="bulleted-list"><li style="list-style-type:circle">Contains <strong>partial</strong> implementations of a class<ul id="3b72b292-db14-4798-9748-3089d0e4c774" class="bulleted-list"><li style="list-style-type:square">With other methods that are required to be completed by children</li></ul></li></ul></li></ul><ul id="f0a38125-c577-4d31-a53f-dd934d1e3062" class="bulleted-list"><li style="list-style-type:disc">Class is abstract, some methods are abstract</li></ul><ul id="1197a543-d7b9-4991-b089-7b3197a2176a" class="bulleted-list"><li style="list-style-type:disc">Can’t be instantiated<ul id="a4916c6d-820e-4bc4-8a83-46d27d3b2d3f" class="bulleted-list"><li style="list-style-type:circle">But can have constructors the children can inherit</li></ul></li></ul><h3 id="ef085f9d-3363-4966-b426-aa8557be3ff0" class="">Interfaces</h3><ul id="68a2b98a-b664-4355-a767-d4942c4deb62" class="bulleted-list"><li style="list-style-type:disc">Inheritance Limitation: Can only inherit <strong><strong><strong>one</strong></strong></strong> class directly<ul id="c5dc315d-bdb3-4df1-830e-051e0a903b82" class="bulleted-list"><li style="list-style-type:circle">meaning, there can be a chain of classes</li></ul></li></ul><ul id="385cb36f-937b-4b6b-9aac-3660268d04f7" class="bulleted-list"><li style="list-style-type:disc">What if we wanted to inherit from more than one class?</li></ul><ul id="1d95d8ce-3319-46f3-9dda-28d798bbf03c" class="bulleted-list"><li style="list-style-type:disc">Enter interfaces<ul id="5c04d0c0-bef3-4e8c-b2a8-b81b4b0a37cc" class="bulleted-list"><li style="list-style-type:circle">contracts that define what methods will be implemented </li></ul><ul id="d8d3800e-2872-4da9-b6f2-dc4b9ad94120" class="bulleted-list"><li style="list-style-type:circle">Contains no implementation - just definitions</li></ul><ul id="0db2d23f-0b57-4530-9ecb-56d5e2f3cf43" class="bulleted-list"><li style="list-style-type:circle">uses implements in the class to say class is following contract</li></ul></li></ul><ul id="8b5fe317-2e14-467e-af95-77dfd5de0eaa" class="bulleted-list"><li style="list-style-type:disc">Common Interface<ul id="2d9d933e-0f59-4644-8556-1ab66f8a2037" class="bulleted-list"><li style="list-style-type:circle">comparable <ul id="b32c2fc2-8ed1-437c-9934-6c252bfb91e7" class="bulleted-list"><li style="list-style-type:square">Implementing it - allows objects to be sorted in ArrayList!</li></ul><ul id="fde8adf5-de15-42d7-8b3e-17f48852f022" class="bulleted-list"><li style="list-style-type:square">Compare to is the method</li></ul></li></ul></li></ul><p id="05f5e402-bfac-4c45-a452-a0c588ce840c" class="">
+</p><hr id="f00ae09e-eb02-494a-8884-5078dfe56ffa"/><p id="40ea20c3-75ff-4a30-bb9a-ec63c8dd6674" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
